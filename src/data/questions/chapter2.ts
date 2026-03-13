@@ -8,17 +8,17 @@ export const chapter2Topics: Topic[] = [
     questions: [
       {
         id: 'q2-1-1',
-        text: 'Phân số nào sau đây bằng phân số -3/4?',
-        options: ['3/-4', '-6/-8', '9/12', '3/4'],
+        text: 'Phân số nào sau đây bằng phân số $\\frac{-3}{4}$?',
+        options: ['$\\frac{3}{-4}$', '$\\frac{-6}{-8}$', '$\\frac{9}{12}$', '$\\frac{3}{4}$'],
         correctAnswerIndex: 0,
-        explanation: 'Nhân cả tử và mẫu với -1 ta được phân số bằng nó: (-3)*(-1) / 4*(-1) = 3/-4.'
+        explanation: 'Nhân cả tử và mẫu với $-1$ ta được phân số bằng nó: $\\frac{(-3)\\times(-1)}{4\\times(-1)} = \\frac{3}{-4}$.'
       },
       {
         id: 'q2-1-2',
-        text: 'Điều kiện để a/b là một phân số là:',
-        options: ['a, b là số tự nhiên, b khác 0', 'a, b là số nguyên, b khác 0', 'a là số nguyên, b là số tự nhiên khác 0', 'a, b là số nguyên'],
+        text: 'Điều kiện để $\\frac{a}{b}$ là một phân số là:',
+        options: ['$a, b$ là số tự nhiên, $b \\neq 0$', '$a, b$ là số nguyên, $b \\neq 0$', '$a$ là số nguyên, $b$ là số tự nhiên khác $0$', '$a, b$ là số nguyên'],
         correctAnswerIndex: 1,
-        explanation: 'Phân số có dạng a/b với a, b thuộc Z và b ≠ 0.'
+        explanation: 'Phân số có dạng $\\frac{a}{b}$ với $a, b \\in \\mathbb{Z}$ và $b \\neq 0$.'
       }
     ]
   },
@@ -29,10 +29,10 @@ export const chapter2Topics: Topic[] = [
     questions: [
       {
         id: 'q2-2-1',
-        text: 'Phân số tối giản của phân số 15/20 là:',
-        options: ['3/4', '5/4', '3/5', '1/2'],
+        text: 'Phân số tối giản của phân số $\\frac{15}{20}$ là:',
+        options: ['$\\frac{3}{4}$', '$\\frac{5}{4}$', '$\\frac{3}{5}$', '$\\frac{1}{2}$'],
         correctAnswerIndex: 0,
-        explanation: 'Chia cả tử và mẫu cho ƯCLN(15, 20) = 5 ta được 3/4.'
+        explanation: 'Chia cả tử và mẫu cho $\\text{ƯCLN}(15, 20) = 5$ ta được $\\frac{3}{4}$.'
       },
       {
         id: 'q2-2-2',
@@ -50,17 +50,17 @@ export const chapter2Topics: Topic[] = [
     questions: [
       {
         id: 'q2-3-1',
-        text: 'Mẫu số chung nhỏ nhất của hai phân số 1/6 và 3/8 là:',
+        text: 'Mẫu số chung nhỏ nhất của hai phân số $\\frac{1}{6}$ và $\\frac{3}{8}$ là:',
         options: ['14', '24', '48', '12'],
         correctAnswerIndex: 1,
         explanation: 'Mẫu số chung nhỏ nhất là BCNN(6, 8) = 24.'
       },
       {
         id: 'q2-3-2',
-        text: 'Quy đồng mẫu số hai phân số 2/3 và 1/4 ta được:',
-        options: ['8/12 và 3/12', '2/12 và 1/12', '6/12 và 4/12', '8/12 và 4/12'],
+        text: 'Quy đồng mẫu số hai phân số $\\frac{2}{3}$ và $\\frac{1}{4}$ ta được:',
+        options: ['$\\frac{8}{12}$ và $\\frac{3}{12}$', '$\\frac{2}{12}$ và $\\frac{1}{12}$', '$\\frac{6}{12}$ và $\\frac{4}{12}$', '$\\frac{8}{12}$ và $\\frac{4}{12}$'],
         correctAnswerIndex: 0,
-        explanation: 'MSC là 12. 2/3 = (2*4)/(3*4) = 8/12. 1/4 = (1*3)/(4*3) = 3/12.'
+        explanation: 'MSC là $12$. $\\frac{2}{3} = \\frac{2\\times4}{3\\times4} = \\frac{8}{12}$. $\\frac{1}{4} = \\frac{1\\times3}{4\\times3} = \\frac{3}{12}$.'
       }
     ]
   },
@@ -71,10 +71,10 @@ export const chapter2Topics: Topic[] = [
     questions: [
       {
         id: 'q2-4-1',
-        text: 'So sánh hai phân số -3/5 và -4/5:',
-        options: ['-3/5 < -4/5', '-3/5 > -4/5', '-3/5 = -4/5', 'Không so sánh được'],
+        text: 'So sánh hai phân số $\\frac{-3}{5}$ và $\\frac{-4}{5}$:',
+        options: ['$\\frac{-3}{5} < \\frac{-4}{5}$', '$\\frac{-3}{5} > \\frac{-4}{5}$', '$\\frac{-3}{5} = \\frac{-4}{5}$', 'Không so sánh được'],
         correctAnswerIndex: 1,
-        explanation: 'Hai phân số cùng mẫu dương, tử nào lớn hơn thì phân số lớn hơn. Vì -3 > -4 nên -3/5 > -4/5.'
+        explanation: 'Hai phân số cùng mẫu dương, tử nào lớn hơn thì phân số lớn hơn. Vì $-3 > -4$ nên $\\frac{-3}{5} > \\frac{-4}{5}$.'
       },
       {
         id: 'q2-4-2',
@@ -92,10 +92,10 @@ export const chapter2Topics: Topic[] = [
     questions: [
       {
         id: 'q2-5-1',
-        text: 'Kết quả của phép tính 1/2 + 1/3 là:',
-        options: ['2/5', '1/5', '5/6', '1/6'],
+        text: 'Kết quả của phép tính $\\frac{1}{2} + \\frac{1}{3}$ là:',
+        options: ['$\\frac{2}{5}$', '$\\frac{1}{5}$', '$\\frac{5}{6}$', '$\\frac{1}{6}$'],
         correctAnswerIndex: 2,
-        explanation: 'Quy đồng mẫu số: 3/6 + 2/6 = 5/6.'
+        explanation: 'Quy đồng mẫu số: $\\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$.'
       },
       {
         id: 'q2-5-2',
@@ -106,10 +106,10 @@ export const chapter2Topics: Topic[] = [
       },
       {
         id: 'q2-5-3',
-        text: 'Chuyển hỗn số 2 1/3 thành phân số ta được:',
-        options: ['7/3', '5/3', '6/3', '3/3'],
+        text: 'Chuyển hỗn số $2\\frac{1}{3}$ thành phân số ta được:',
+        options: ['$\\frac{7}{3}$', '$\\frac{5}{3}$', '$\\frac{6}{3}$', '$\\frac{3}{3}$'],
         correctAnswerIndex: 0,
-        explanation: '2 1/3 = (2*3 + 1)/3 = 7/3.'
+        explanation: '$2\\frac{1}{3} = \\frac{2\\times3 + 1}{3} = \\frac{7}{3}$.'
       }
     ]
   }

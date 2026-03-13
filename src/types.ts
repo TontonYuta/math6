@@ -10,6 +10,7 @@ export interface Topic {
   id: string;
   title: string;
   description: string;
+  youtubeUrl?: string;
   questions: Question[];
 }
 
@@ -18,4 +19,17 @@ export interface Chapter {
   title: string;
   description: string;
   topics: Topic[];
+}
+
+export interface Achievement {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  condition: (progress: UserProgress) => boolean;
+}
+
+export interface UserProgress {
+  completedTopics: { [topicId: string]: number }; // topicId -> bestScore
+  unlockedAchievements: string[]; // achievementIds
 }
