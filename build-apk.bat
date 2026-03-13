@@ -1,12 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
-REM Chuyen sang UTF-8 de hien thi tieng Viet khong bi loi font
 chcp 65001 >nul
-REM Chuyen huong den dung thu muc chua file
 cd /d "%~dp0"
 
 echo ==========================================
-echo        TONTONYUTA - ONE CLICK APK (FINAL)
+echo    TONTONYUTA - ONE CLICK APK (ICON v6.0)
 echo ==========================================
 
 REM --------------------------------------------
@@ -20,27 +18,24 @@ if %errorlevel% neq 0 (
 )
 
 REM --------------------------------------------
-REM 2. CAI THU VIEN (NODEJS & CAPACITOR)
+REM 2. CAI THU VIEN (NODEJS & CAPACITOR & ASSETS)
 REM --------------------------------------------
-echo [1/6] Dang tai nguyen lieu (npm install)...
+echo [1/7] Dang tai nguyen lieu...
 call npm install
-call npm install @capacitor/core @capacitor/cli @capacitor/android
+call npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/assets --save-dev
 
 REM --------------------------------------------
-REM 3. BUILD GIAO DIEN WEB TRUOC
+REM 3. BUILD GIAO DIEN WEB
 REM --------------------------------------------
-REM Lam buoc nay truoc de tao ra thu muc 'dist', giup cac buoc sau khong bao loi.
-echo [2/6] Dang ghep noi giao dien Web (Vite)...
+echo [2/7] Dang ghep noi giao diện Web...
 call npm run build
 
 REM --------------------------------------------
 REM 4. XU LY CAU HINH APP
 REM --------------------------------------------
-echo [3/6] Thiet lap cau hinh he thong...
-REM Xoa ngay file .ts de tranh loi "unknown option"
+echo [3/7] Thiet lap cau hinh he thong...
 if exist capacitor.config.ts del /f /q capacitor.config.ts
 
-REM Neu la du an moi, hien bang hoi ten
 if not exist capacitor.config.json (
     echo.
     echo ==========================================
@@ -66,36 +61,46 @@ if not exist capacitor.config.json (
         rd /s /q android
     )
     echo [OK] Da ghi nhan App: !APP_NAME!
-) else (
-    echo [OK] Da co cau hinh, bo qua buoc nhap ten.
 )
 
 REM --------------------------------------------
-REM 5. KHOI TAO ANDROID & CAP QUYEN INTERNET
+REM 5. XU LY ICON (MOI)
+REM --------------------------------------------
+echo [4/7] Dang kiem tra va tao Icon...
+REM Neu co file icon.png o ngoai cung, se tu dong tao icon cho Android
+if exist "icon.png" (
+    echo [OK] Da tim thay icon.png. Dang tu dong tao bo Icon cho Android...
+    if not exist "assets" mkdir assets
+    copy /y "icon.png" "assets\icon.png" >nul
+    call npx capacitor-assets generate --android
+) else (
+    echo [!] Khong tim thay file icon.png o thu muc goc. App se dung icon mac dinh.
+)
+
+REM --------------------------------------------
+REM 6. KHOI TAO ANDROID & CAP QUYEN
 REM --------------------------------------------
 if not exist android (
-    echo [4/6] Dang dung bo khung Android...
+    echo [5/7] Dang dung bo khung Android...
     call npx cap add android
     
-    echo [!] Dang cap quyen Internet de khong bi liet nut bam...
+    echo [!] Dang cap quyen Internet...
     powershell -Command "$p='android\app\src\main\AndroidManifest.xml'; if (Test-Path $p) { $c=Get-Content $p; if($c -notmatch 'android.permission.INTERNET'){ $c -replace '<application', '<uses-permission android:name=\"android.permission.INTERNET\" />`n    <application' | Set-Content $p } }"
-) else (
-    echo [4/6] Khung Android da san sang.
 )
 
 REM --------------------------------------------
-REM 6. DONG BO & XUAT XUONG APK
+REM 7. DONG BO & BUILD APK
 REM --------------------------------------------
-echo [5/6] Dong bo code tu Web sang Android...
+echo [6/7] Dong bo code vao Android...
 call npx cap sync android
 
-echo [6/6] Dang tien hanh Build APK (Vui long doi)...
+echo [7/7] Dang Build APK (Vui long doi)...
 if exist "android\gradlew.bat" (
     cd android
     call gradlew.bat assembleDebug --daemon
     cd ..
 ) else (
-    echo [Loi] Khong tim thay Gradle. Quatrinh bi huy!
+    echo [Loi] Khong tim thay Gradle!
     pause
     exit /b
 )
@@ -104,7 +109,6 @@ echo ==========================================
 echo           BUILD APK HOAN TAT!
 echo ==========================================
 
-REM Tu dong mo thu muc chua file APK
 if exist "android\app\build\outputs\apk\debug" (
     start explorer "android\app\build\outputs\apk\debug"
 )
