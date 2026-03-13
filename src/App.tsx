@@ -30,7 +30,7 @@ const initialProgress: UserProgress = {
 };
 
 export default function App() {
-  const [appState, setAppState] = useState<AppState>('home');
+const [appState, setAppState] = useState<AppState>('home');
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState<number[]>([]);
@@ -45,11 +45,20 @@ export default function App() {
   const [updateUrl, setUpdateUrl] = useState<string | null>(null);
   const [isUpdating, setIsUpdating] = useState(false);
   const [updateProgressText, setUpdateProgressText] = useState('');
+  
+  // SỬA CHỖ SỐ 1: Thêm biến này để App nhớ được số phiên bản tải về
+  const [newVersionInfo, setNewVersionInfo] = useState<string>(''); 
+
+  // SỬA CHỖ SỐ 2: Lệnh "Tuyên bố sống sót" để chống bị xóa code mới
+  useEffect(() => {
+    if (Capacitor.isNativePlatform()) {
+      CapacitorUpdater.notifyAppReady();
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('studentName', studentName);
   }, [studentName]);
-
   const checkForUpdates = async () => {
     setIsCheckingUpdate(true);
     try {
@@ -65,9 +74,13 @@ export default function App() {
       const response = await fetch(VERSION_CHECK_URL);
       const data = await response.json();
       
-      if (data.version && data.version !== APP_VERSION) {
+if (data.version && data.version !== APP_VERSION) {
         if (data.message) setUpdateMessage(data.message);
         if (data.updateUrl) setUpdateUrl(data.updateUrl);
+        
+        // SỬA CHỖ SỐ 3: Lưu lại số phiên bản mới (ví dụ: 1.1.3) để lát nữa dùng
+        setNewVersionInfo(data.version); 
+        
         setShowUpdateBanner(true);
       } else {
         alert('Bạn đang dùng phiên bản mới nhất!');
@@ -86,14 +99,15 @@ export default function App() {
         setIsUpdating(true);
         setUpdateProgressText('Đang tải bản cập nhật...');
         
-        // Tải bản cập nhật (file zip)
+        // SỬA CHỖ SỐ 4: Bắt buộc truyền version vào lệnh download
         const version = await CapacitorUpdater.download({
-          url: updateUrl || 'https://your-fallback-url.com/update.zip',
+          version: newVersionInfo, // Thư viện cần cái này để tạo thư mục chứa code mới
+          url: updateUrl || '',
         });
         
         setUpdateProgressText('Đang cài đặt...');
         // Áp dụng và khởi động lại app
-        await CapacitorUpdater.set(version);
+        await CapacitorUpdater.set({ id: version.id }); // Cú pháp chuẩn xác nhất để set phiên bản
       } catch (error) {
         console.error('Lỗi cập nhật OTA:', error);
         alert('Cập nhật thất bại. Vui lòng thử lại sau.');

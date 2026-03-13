@@ -131,3 +131,31 @@ Nếu bạn tải mã nguồn (source code) này về máy tính để chạy of
    npm run dev
    ```
 5. Mở trình duyệt web (Chrome, Cốc Cốc, Safari...) và truy cập vào đường dẫn hiển thị trên màn hình (thường là `http://localhost:5173` hoặc `http://localhost:3000`).
+
+---
+
+## 📱 Hướng dẫn Đóng gói APK & Cập nhật từ xa (OTA)
+
+Dự án này đã được tích hợp hệ thống tự động hóa. Bạn không cần kết nối cáp điện thoại hay cài đặt các công cụ lập trình phức tạp để tạo App.
+
+### 1. Cách xuất file APK (Cho học sinh cài lần đầu)
+1. Đảm bảo máy tính đã cài đặt Java (JDK) và Node.js.
+2. Nháy đúp vào file `build.bat` nằm ở thư mục gốc.
+3. Nhập tên App và Số phiên bản (Ví dụ: `1.0.1`).
+4. Chờ khoảng 1-2 phút, thư mục chứa file `app-debug.apk` sẽ tự động mở ra. Bạn gửi file này cho học sinh cài đặt.
+
+### 2. Cách gửi bài tập mới cho học sinh (Không cần tải lại App)
+Khi bạn thêm chương mới hoặc sửa câu hỏi, học sinh không cần gỡ App cài lại. Bạn chỉ cần thực hiện quy trình cập nhật OTA (Over-The-Air) sau:
+
+- **Bước 1: Chạy kịch bản tự động**
+  Chạy file `build.bat` và nhập số phiên bản mới (Ví dụ: `1.0.2`). Hệ thống sẽ tự tạo ra file `update.zip` và đẩy thẳng lên GitHub Releases.
+
+- **Bước 2: Cập nhật "Bảng thông báo" (Google Script)**
+  1. Mở file Google Apps Script của dự án.
+  2. Sửa thông số `version` thành `"1.0.2"` (khớp với số bạn vừa nhập).
+  3. Sửa `updateUrl` thành đường link tải file `update.zip` trực tiếp từ GitHub.
+  
+- **Bước 3: Phát sóng (Deploy)**
+  Nhấn **Deploy -> Manage deployments -> Edit (Cây bút) -> Chọn New Version -> Nhấn Deploy**.
+
+Ngay sau bước này, học sinh mở App lên sẽ thấy thông báo cập nhật và nhận bài tập mới trong chớp mắt!
