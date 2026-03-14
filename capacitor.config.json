@@ -1,6 +1,6 @@
-{
+﻿{
   "appId": "com.tontonyuta.math6",
-  "appName": "Mathematics",
+  "appName": "Math6",
   "webDir": "dist",
   "bundledWebRuntime": false,
   "plugins": {
