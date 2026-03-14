@@ -5,7 +5,7 @@ export const chapter1Topics: Topic[] = [
     id: 'c1-t1',
     title: 'Số nguyên âm và Tập hợp các số nguyên',
     description: 'Làm quen trục số, thứ tự trong tập số nguyên.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=1b9Z_2_T000',
+    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
     questions: [
       {
         id: 'q1-1-1',
@@ -158,7 +158,7 @@ export const chapter1Topics: Topic[] = [
     id: 'c1-t2',
     title: 'Cộng và Trừ hai số nguyên',
     description: 'Quy tắc cộng cùng dấu, cộng khác dấu và phép trừ.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
     questions: [
       {
         id: 'q1-2-1',
@@ -306,7 +306,7 @@ export const chapter1Topics: Topic[] = [
     id: 'c1-t3',
     title: 'Quy tắc dấu ngoặc và Quy tắc chuyển vế',
     description: 'Kỹ năng biến đổi biểu thức.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=8xN7XxM4Q8k',
+    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
     questions: [
       {
         id: 'q1-3-1',
@@ -454,7 +454,7 @@ export const chapter1Topics: Topic[] = [
     id: 'c1-t4',
     title: 'Nhân và Chia hai số nguyên',
     description: 'Quy tắc dấu của tích và thương.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=6Bqg6C8b0aY',
+    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
     questions: [
       {
         id: 'q1-4-1',
@@ -607,7 +607,7 @@ export const chapter1Topics: Topic[] = [
     id: 'c1-t5',
     title: 'Bội và Ước của một số nguyên',
     description: 'Tính chất chia hết trong tập số nguyên.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=2w7l9Vqj5mE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
     questions: [
       {
         id: 'q1-5-1',

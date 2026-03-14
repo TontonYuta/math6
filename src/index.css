@@ -6,5 +6,24 @@
 
 @theme {
   --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
-}
 
+  /* --- APPLE BLUE ACCENT --- */
+  --color-indigo-500: #007aff; 
+  --color-indigo-600: #0062cc;
+
+  /* --- LIGHT MODE (Apple Silver/White) --- */
+  /* Class bg-slate-50 sẽ là nền trắng bạc tinh tế */
+  --color-slate-50: #f5f5f7; 
+  /* Class bg-white vẫn là trắng tinh */
+  --color-white: #ffffff;
+  /* Class text-slate-900 là chữ đen tiêu chuẩn Apple */
+  --color-slate-900: #1d1d1f; 
+
+  /* --- DARK MODE (Apple True Black) --- */
+  /* Ép class dark:bg-slate-900 thành đen tuyệt đối cho màn OLED */
+  --color-slate-950: #000000; 
+  /* Các thẻ Card (dark:bg-slate-800) sẽ là xám đậm Apple */
+  --color-slate-800: #1c1c1e; 
+  /* Màu chữ trong Dark Mode */
+  --color-slate-100: #f5f5f7; 
+}

@@ -1,6 +1,11 @@
 {
   "appId": "com.tontonyuta.math6",
-  "appName": "Math 6",
+  "appName": "Mathematics",
   "webDir": "dist",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "plugins": {
+    "CapacitorUpdater": {
+      "autoUpdate": false
+    }
+  }
 }

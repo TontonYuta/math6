@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { X, Moon, Sun, Trash2, AlertTriangle } from 'lucide-react';
 
 interface SettingsProps {
@@ -28,43 +28,44 @@ export const Settings: React.FC<SettingsProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
+    // Lớp nền mờ chuẩn iOS
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 dark:bg-black/60 backdrop-blur-md">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-white dark:bg-slate-800 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden"
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        className="bg-white dark:bg-slate-800 w-full max-w-sm rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-700"
       >
-        <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-700">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white">Cài đặt</h2>
+        <div className="flex items-center justify-between p-6 pb-2">
+          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Cài đặt</h2>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full transition-colors"
+            className="p-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full transition-all active:scale-90"
           >
             <X size={24} />
           </button>
         </div>
 
-        <div className="p-6 space-y-6">
-          {/* Dark Mode Toggle */}
+        <div className="p-6 pt-4 space-y-8">
+          {/* Dark Mode Toggle - Apple Switch Style */}
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-semibold text-slate-900 dark:text-white">Giao diện</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Chuyển đổi sáng/tối</p>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Giao diện</h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Chế độ tối (Dark Mode)</p>
             </div>
             <button
               onClick={onToggleDarkMode}
-              className={`relative inline-flex h-8 w-14 items-center rounded-full transition-colors ${
-                isDarkMode ? 'bg-indigo-500' : 'bg-slate-300'
+              className={`relative inline-flex h-8 w-14 items-center rounded-full transition-colors duration-300 ${
+                isDarkMode ? 'bg-green-500' : 'bg-slate-200'
               }`}
             >
               <span
-                className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform flex items-center justify-center ${
+                className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${
                   isDarkMode ? 'translate-x-7' : 'translate-x-1'
                 }`}
               >
                 {isDarkMode ? (
-                  <Moon size={14} className="text-indigo-500" />
+                  <Moon size={14} className="text-green-600" />
                 ) : (
                   <Sun size={14} className="text-amber-500" />
                 )}
@@ -72,52 +73,57 @@ export const Settings: React.FC<SettingsProps> = ({
             </button>
           </div>
 
-          <hr className="border-slate-100 dark:border-slate-700" />
+          <div className="h-[0.5px] bg-slate-100 dark:bg-slate-700" />
 
-          {/* Reset Progress */}
+          {/* Reset Progress Section */}
           <div>
-            <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1">Xóa dữ liệu</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
-              Xóa toàn bộ tiến trình học tập và thành tích của bạn.
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Dữ liệu</h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 font-medium leading-relaxed">
+              Xóa toàn bộ tiến trình học tập và thành tích. Hành động này không thể hoàn tác.
             </p>
             
             {!showConfirmReset ? (
               <button
                 onClick={() => setShowConfirmReset(true)}
-                className="w-full py-3 px-4 bg-red-50 hover:bg-red-100 dark:bg-red-500/10 dark:hover:bg-red-500/20 text-red-600 dark:text-red-400 font-semibold rounded-2xl flex items-center justify-center gap-2 transition-colors"
+                className="w-full py-4 px-4 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 font-bold rounded-2xl flex items-center justify-center gap-2 transition-all active:scale-95"
               >
                 <Trash2 size={20} />
-                Xóa dữ liệu học tập
+                Xóa dữ liệu ngay
               </button>
             ) : (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                className="bg-red-50 dark:bg-red-500/10 p-4 rounded-2xl border border-red-100 dark:border-red-500/20"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-red-50 dark:bg-red-500/10 p-5 rounded-[2rem] border border-red-100 dark:border-red-500/20"
               >
-                <div className="flex items-start gap-3 mb-4 text-red-800 dark:text-red-300">
+                <div className="flex items-start gap-3 mb-5 text-red-800 dark:text-red-300">
                   <AlertTriangle size={24} className="shrink-0 text-red-500" />
-                  <p className="text-sm font-medium">
-                    Bạn có chắc chắn muốn xóa toàn bộ dữ liệu? Hành động này không thể hoàn tác.
+                  <p className="text-sm font-bold leading-tight">
+                    Bạn có chắc chắn? Mọi nỗ lực của bạn sẽ bị xóa bỏ hoàn toàn.
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <button
                     onClick={() => setShowConfirmReset(false)}
-                    className="flex-1 py-2.5 px-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold rounded-xl border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+                    className="flex-1 py-3 px-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-slate-700 transition-all active:scale-95"
                   >
                     Hủy
                   </button>
                   <button
                     onClick={handleReset}
-                    className="flex-1 py-2.5 px-4 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-xl transition-colors"
+                    className="flex-1 py-3 px-4 bg-red-500 text-white font-bold rounded-xl shadow-lg shadow-red-200 dark:shadow-none transition-all active:scale-95"
                   >
-                    Xóa ngay
+                    Xác nhận
                   </button>
                 </div>
               </motion.div>
             )}
           </div>
+        </div>
+        
+        {/* Footer nhỏ chuẩn Apple */}
+        <div className="py-6 text-center">
+            <p className="text-[10px] text-slate-300 dark:text-slate-600 font-black uppercase tracking-[0.2em]">Designed by TontonYuta</p>
         </div>
       </motion.div>
     </div>
