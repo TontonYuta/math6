@@ -10,20 +10,19 @@ interface MathTextProps {
 
 export const MathText: React.FC<MathTextProps> = ({ content, className }) => {
   return (
-    // Sử dụng font-smoothing để chữ Roboto trông mảnh và sắc nét hơn (đúng chất iOS)
-    <div className={`math-text antialiased tracking-tight ${className || ''}`}>
+    // 1. Thêm overflow-x-auto để cuộn ngang nếu công thức Toán ($$ ... $$) quá dài
+    <div className={`math-text antialiased tracking-tight overflow-x-auto ${className || ''}`}>
       <ReactMarkdown
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeKatex]}
         components={{
-          // Apple Style ưu tiên font-weight vừa phải, không quá dày
           p: ({ node, ...props }) => (
             <span 
-              className="text-slate-800 dark:text-slate-100 leading-relaxed" 
+              // 2. Thêm clamp để tự co giãn chữ và break-words để ngắt dòng thông minh
+              className="text-slate-800 dark:text-slate-100 leading-relaxed text-[clamp(15px,4vw,18px)] break-words" 
               {...props} 
             />
           ),
-          // Nếu có dùng link trong bài giảng, cho nó màu Apple Blue
           a: ({ node, ...props }) => (
             <a 
               className="text-indigo-500 hover:underline font-medium" 
