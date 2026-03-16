@@ -1,3 +1,8 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, CheckCircle2, XCircle, ArrowRight, Check } from 'lucide-react';
@@ -56,14 +61,17 @@ export const Quiz: React.FC<QuizProps> = ({ topic, onBack, onComplete }) => {
   const [shortAnswerInput, setShortAnswerInput] = useState('');
 
   const question = topic.questions[currentQuestionIndex];
-  const isLastQuestion = currentQuestionIndex === topic.questions.length - 1;
-  const questionType = question.type ?? 'single-choice';
 
   useEffect(() => {
+    if (!question) return;
+
+    const questionType = question.type ?? 'single-choice';
     if (questionType === 'true-false' && question.trueFalseStatements) {
       setTfSelections(new Array(question.trueFalseStatements.length).fill(null));
+    } else {
+      setTfSelections([]);
     }
-  }, [currentQuestionIndex, questionType, question.trueFalseStatements]);
+  }, [currentQuestionIndex, question]);
 
   const playCorrectSound = () => {
     const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3');
@@ -76,6 +84,41 @@ export const Quiz: React.FC<QuizProps> = ({ topic, onBack, onComplete }) => {
     audio.volume = 0.4;
     audio.play().catch(() => {});
   };
+
+  if (!topic.questions || topic.questions.length === 0 || !question) {
+    return (
+      <div className="w-full max-w-2xl mx-auto p-4 min-h-screen flex flex-col">
+        <div className="flex items-center justify-between mb-8">
+          <button
+            onClick={onBack}
+            className="p-2 -ml-2 text-gray-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-800 rounded-full transition-colors shrink-0"
+          >
+            <ArrowLeft size={24} />
+          </button>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700 text-center max-w-lg w-full">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+              Bài này chưa có câu hỏi
+            </h2>
+            <p className="text-slate-500 dark:text-slate-400 mb-6">
+              Hãy quay lại và chọn bài khác hoặc thêm dữ liệu câu hỏi cho chủ đề này.
+            </p>
+            <button
+              onClick={onBack}
+              className="px-5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition-all active:scale-[0.98]"
+            >
+              Quay lại
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const isLastQuestion = currentQuestionIndex === topic.questions.length - 1;
+  const questionType = question.type ?? 'single-choice';
 
   const handleOptionSelect = (index: number) => {
     if (isAnswered || questionType !== 'single-choice') return;
