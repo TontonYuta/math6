@@ -6,7 +6,7 @@ export const chapter3CoreTopics: Topic[] = [
     id: 'c3-t1',
     title: 'Khái niệm phân số',
     description: 'Nhận biết phân số, tử số, mẫu số và ý nghĩa của phân số.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q3-1-1',
@@ -89,7 +89,7 @@ export const chapter3CoreTopics: Topic[] = [
     id: 'c3-t2',
     title: 'Phân số bằng nhau',
     description: 'Nhận biết và tìm các phân số bằng nhau, vận dụng tính chất cơ bản của phân số.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q3-2-1',
@@ -187,7 +187,7 @@ export const chapter3CoreTopics: Topic[] = [
     id: 'c3-t3',
     title: 'So sánh phân số',
     description: 'So sánh các phân số cùng mẫu, cùng tử và khác mẫu bằng nhiều cách phù hợp.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q3-3-1',
@@ -275,7 +275,7 @@ export const chapter3CoreTopics: Topic[] = [
     id: 'c3-t4',
     title: 'Các phép tính với phân số',
     description: 'Thực hiện phép cộng, trừ, nhân, chia phân số và vận dụng trong bài toán đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q3-4-1',
@@ -363,7 +363,7 @@ export const chapter3CoreTopics: Topic[] = [
     id: 'c3-t5',
     title: 'Ôn tập chương Phân số',
     description: 'Củng cố kiến thức về khái niệm phân số, phân số bằng nhau, so sánh và các phép tính với phân số.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q3-5-1',

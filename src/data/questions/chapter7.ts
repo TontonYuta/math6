@@ -6,7 +6,7 @@ export const chapter7CoreTopics: Topic[] = [
     id: 'c7-t1',
     title: 'Điểm và đường thẳng',
     description: 'Nhận biết điểm, đường thẳng và các quan hệ cơ bản giữa điểm với đường thẳng.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q7-1-1',
@@ -94,7 +94,7 @@ export const chapter7CoreTopics: Topic[] = [
     id: 'c7-t2',
     title: 'Tia',
     description: 'Nhận biết tia, gốc của tia và phân biệt tia với đường thẳng, đoạn thẳng.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q7-2-1',
@@ -202,7 +202,7 @@ export const chapter7CoreTopics: Topic[] = [
     id: 'c7-t3',
     title: 'Đoạn thẳng',
     description: 'Nhận biết đoạn thẳng, hai đầu mút, độ dài đoạn thẳng và các quan hệ cơ bản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q7-3-1',
@@ -300,7 +300,7 @@ export const chapter7CoreTopics: Topic[] = [
     id: 'c7-t4',
     title: 'Góc',
     description: 'Nhận biết góc, đỉnh góc, cạnh góc và phân loại một số góc cơ bản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q7-4-1',
@@ -393,7 +393,7 @@ export const chapter7CoreTopics: Topic[] = [
     id: 'c7-t5',
     title: 'Ôn tập chương Hình học cơ bản',
     description: 'Củng cố kiến thức về điểm, đường thẳng, tia, đoạn thẳng và góc.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q7-5-1',

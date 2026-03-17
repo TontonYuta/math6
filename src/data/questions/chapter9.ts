@@ -6,7 +6,7 @@ export const chapter9CoreTopics: Topic[] = [
     id: 'c9-t1',
     title: 'Đọc và nhận xét dữ liệu từ bảng',
     description: 'Biết đọc dữ liệu từ bảng thống kê và đưa ra các nhận xét đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q9-1-1',
@@ -119,7 +119,7 @@ export const chapter9CoreTopics: Topic[] = [
     id: 'c9-t2',
     title: 'Đọc và nhận xét dữ liệu từ biểu đồ',
     description: 'Biết đọc thông tin từ biểu đồ tranh, biểu đồ cột và đưa ra nhận xét phù hợp.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q9-2-1',
@@ -247,7 +247,7 @@ export const chapter9CoreTopics: Topic[] = [
     id: 'c9-t3',
     title: 'So sánh và rút ra nhận xét từ dữ liệu',
     description: 'Biết so sánh số liệu và rút ra những kết luận đơn giản từ bảng hoặc biểu đồ.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q9-3-1',
@@ -360,7 +360,7 @@ export const chapter9CoreTopics: Topic[] = [
     id: 'c9-t4',
     title: 'Một số đại lượng đặc trưng đơn giản',
     description: 'Làm quen với giá trị lớn nhất, nhỏ nhất và tổng đơn giản của dãy số liệu.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q9-4-1',
@@ -448,7 +448,7 @@ export const chapter9CoreTopics: Topic[] = [
     id: 'c9-t5',
     title: 'Ôn tập chương Phân tích và xử lí dữ liệu',
     description: 'Củng cố cách đọc bảng, biểu đồ, so sánh và rút ra nhận xét từ dữ liệu.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q9-5-1',

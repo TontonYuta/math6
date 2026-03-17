@@ -6,7 +6,7 @@ export const chapter6CoreTopics: Topic[] = [
     id: 'c6-t1',
     title: 'Trục đối xứng',
     description: 'Nhận biết trục đối xứng của một hình phẳng và các hình có trục đối xứng.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q6-1-1',
@@ -94,7 +94,7 @@ export const chapter6CoreTopics: Topic[] = [
     id: 'c6-t2',
     title: 'Tâm đối xứng',
     description: 'Nhận biết tâm đối xứng của một hình phẳng và các hình có tâm đối xứng.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q6-2-1',
@@ -192,7 +192,7 @@ export const chapter6CoreTopics: Topic[] = [
     id: 'c6-t3',
     title: 'Hình có trục đối xứng và tâm đối xứng',
     description: 'Phân biệt các hình có trục đối xứng, tâm đối xứng hoặc có cả hai.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q6-3-1',
@@ -305,7 +305,7 @@ export const chapter6CoreTopics: Topic[] = [
     id: 'c6-t4',
     title: 'Đối xứng trong tự nhiên và nghệ thuật',
     description: 'Nhận biết tính đối xứng trong các vật thể, họa tiết và hình ảnh gần gũi trong thực tế.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q6-4-1',
@@ -392,7 +392,7 @@ export const chapter6CoreTopics: Topic[] = [
     id: 'c6-t5',
     title: 'Ôn tập chương Tính đối xứng của hình phẳng',
     description: 'Củng cố kiến thức về trục đối xứng, tâm đối xứng và ứng dụng trong thực tiễn.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q6-5-1',

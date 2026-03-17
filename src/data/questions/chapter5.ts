@@ -6,7 +6,7 @@ export const chapter5CoreTopics: Topic[] = [
     id: 'c5-t1',
     title: 'Điểm, đoạn thẳng và các hình cơ bản',
     description: 'Nhận biết điểm, đoạn thẳng và một số hình phẳng quen thuộc trong thực tiễn.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q5-1-1',
@@ -84,7 +84,7 @@ export const chapter5CoreTopics: Topic[] = [
     id: 'c5-t2',
     title: 'Hình tam giác, hình vuông, hình chữ nhật',
     description: 'Nhận biết đặc điểm của tam giác, hình vuông và hình chữ nhật.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q5-2-1',
@@ -172,7 +172,7 @@ export const chapter5CoreTopics: Topic[] = [
     id: 'c5-t3',
     title: 'Hình bình hành, hình thoi, hình thang',
     description: 'Nhận biết các đặc điểm cơ bản của hình bình hành, hình thoi và hình thang.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q5-3-1',
@@ -270,7 +270,7 @@ export const chapter5CoreTopics: Topic[] = [
     id: 'c5-t4',
     title: 'Chu vi và diện tích một số hình phẳng',
     description: 'Tính chu vi, diện tích của hình vuông, hình chữ nhật và vận dụng vào thực tiễn.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q5-4-1',
@@ -353,7 +353,7 @@ export const chapter5CoreTopics: Topic[] = [
     id: 'c5-t5',
     title: 'Ôn tập chương Các hình phẳng trong thực tiễn',
     description: 'Củng cố nhận biết các hình phẳng và vận dụng tính chu vi, diện tích trong thực tế.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q5-5-1',

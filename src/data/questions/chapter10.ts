@@ -6,7 +6,7 @@ export const chapter10CoreTopics: Topic[] = [
     id: 'c10-t1',
     title: 'Phép thử ngẫu nhiên',
     description: 'Nhận biết phép thử ngẫu nhiên và các kết quả có thể xảy ra trong những tình huống đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q10-1-1',
@@ -114,7 +114,7 @@ export const chapter10CoreTopics: Topic[] = [
     id: 'c10-t2',
     title: 'Biến cố trong phép thử ngẫu nhiên',
     description: 'Nhận biết biến cố, phân biệt biến cố chắc chắn, không thể và biến cố đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q10-2-1',
@@ -237,7 +237,7 @@ export const chapter10CoreTopics: Topic[] = [
     id: 'c10-t3',
     title: 'Xác suất thực nghiệm',
     description: 'Làm quen với xác suất thực nghiệm thông qua số lần xuất hiện của biến cố trong nhiều lần thử.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q10-3-1',
@@ -330,7 +330,7 @@ export const chapter10CoreTopics: Topic[] = [
     id: 'c10-t4',
     title: 'So sánh khả năng xảy ra của các biến cố',
     description: 'Nhận biết biến cố nào có khả năng xảy ra nhiều hơn, ít hơn hoặc như nhau trong các tình huống đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q10-4-1',
@@ -448,7 +448,7 @@ export const chapter10CoreTopics: Topic[] = [
     id: 'c10-t5',
     title: 'Ôn tập chương Một số yếu tố xác suất',
     description: 'Củng cố kiến thức về phép thử ngẫu nhiên, biến cố, xác suất thực nghiệm và so sánh khả năng xảy ra.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q10-5-1',

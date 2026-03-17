@@ -6,7 +6,7 @@ export const chapter8CoreTopics: Topic[] = [
     id: 'c8-t1',
     title: 'Thu thập dữ liệu',
     description: 'Nhận biết dữ liệu, cách thu thập dữ liệu và các tình huống khảo sát đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q8-1-1',
@@ -104,7 +104,7 @@ export const chapter8CoreTopics: Topic[] = [
     id: 'c8-t2',
     title: 'Phân loại và tổ chức dữ liệu',
     description: 'Biết sắp xếp, phân loại và trình bày dữ liệu theo nhóm phù hợp.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q8-2-1',
@@ -222,7 +222,7 @@ export const chapter8CoreTopics: Topic[] = [
     id: 'c8-t3',
     title: 'Bảng thống kê đơn giản',
     description: 'Đọc, lập và nhận xét từ các bảng thống kê đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q8-3-1',
@@ -330,7 +330,7 @@ export const chapter8CoreTopics: Topic[] = [
     id: 'c8-t4',
     title: 'Biểu đồ tranh và biểu đồ cột đơn giản',
     description: 'Làm quen với biểu đồ tranh, biểu đồ cột và cách đọc thông tin từ biểu đồ.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q8-4-1',
@@ -453,7 +453,7 @@ export const chapter8CoreTopics: Topic[] = [
     id: 'c8-t5',
     title: 'Ôn tập chương Thu thập và tổ chức dữ liệu',
     description: 'Củng cố kiến thức về thu thập, phân loại, tổ chức dữ liệu và đọc bảng, biểu đồ đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q8-5-1',

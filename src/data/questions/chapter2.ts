@@ -6,7 +6,7 @@ export const chapter2CoreTopics: Topic[] = [
     id: 'c2-t1',
     title: 'Tập hợp các số nguyên',
     description: 'Nhận biết số nguyên dương, số nguyên âm, số 0 và biểu diễn trên trục số.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q2-1-1',
@@ -84,7 +84,7 @@ export const chapter2CoreTopics: Topic[] = [
     id: 'c2-t2',
     title: 'So sánh các số nguyên',
     description: 'So sánh số nguyên trên trục số và vận dụng dấu lớn hơn, nhỏ hơn.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q2-2-1',
@@ -167,7 +167,7 @@ export const chapter2CoreTopics: Topic[] = [
     id: 'c2-t3',
     title: 'Phép cộng và phép trừ số nguyên',
     description: 'Thực hiện phép cộng, trừ số nguyên và vận dụng trong các tình huống thực tế.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q2-3-1',
@@ -245,7 +245,7 @@ export const chapter2CoreTopics: Topic[] = [
     id: 'c2-t4',
     title: 'Phép nhân và phép chia số nguyên',
     description: 'Thực hiện phép nhân, chia số nguyên và vận dụng quy tắc dấu.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q2-4-1',
@@ -323,7 +323,7 @@ export const chapter2CoreTopics: Topic[] = [
     id: 'c2-t5',
     title: 'Ôn tập chương Số nguyên',
     description: 'Củng cố kiến thức về số nguyên, so sánh số nguyên và các phép tính với số nguyên.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q2-5-1',

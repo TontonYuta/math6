@@ -6,7 +6,7 @@ export const chapter4CoreTopics: Topic[] = [
     id: 'c4-t1',
     title: 'Khái niệm số thập phân',
     description: 'Nhận biết số thập phân, phần nguyên, phần thập phân và cách đọc, viết số thập phân.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q4-1-1',
@@ -84,7 +84,7 @@ export const chapter4CoreTopics: Topic[] = [
     id: 'c4-t2',
     title: 'So sánh và sắp xếp số thập phân',
     description: 'So sánh số thập phân và sắp xếp theo thứ tự tăng dần hoặc giảm dần.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q4-2-1',
@@ -172,7 +172,7 @@ export const chapter4CoreTopics: Topic[] = [
     id: 'c4-t3',
     title: 'Các phép tính với số thập phân',
     description: 'Thực hiện phép cộng, trừ, nhân, chia số thập phân trong các tình huống cơ bản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q4-3-1',
@@ -250,7 +250,7 @@ export const chapter4CoreTopics: Topic[] = [
     id: 'c4-t4',
     title: 'Tỉ số phần trăm',
     description: 'Nhận biết tỉ số phần trăm, cách viết và vận dụng trong các bài toán đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q4-4-1',
@@ -328,7 +328,7 @@ export const chapter4CoreTopics: Topic[] = [
     id: 'c4-t5',
     title: 'Ôn tập chương Số thập phân',
     description: 'Củng cố kiến thức về số thập phân, phép tính với số thập phân và tỉ số phần trăm.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q4-5-1',

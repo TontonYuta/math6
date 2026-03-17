@@ -221,7 +221,7 @@ export const Quiz: React.FC<QuizProps> = ({ topic, onBack, onComplete }) => {
         className="flex-1"
       >
         <div className="bg-white dark:bg-slate-800 p-5 sm:p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700 mb-6">
-          <div className="text-[clamp(16px,4.5vw,20px)] font-medium text-gray-900 dark:text-slate-100 leading-relaxed mb-6">
+          <div className="text-[clamp(16px,4.5vw,20px)] font-medium text-gray-900 dark:text-slate-100 leading-relaxed mb-6 overflow-visible">
             <MathText content={question.text} />
           </div>
 
@@ -235,7 +235,7 @@ export const Quiz: React.FC<QuizProps> = ({ topic, onBack, onComplete }) => {
                 const optionImage = question.optionImages?.[index] ?? null;
 
                 let optionClasses =
-                  'w-full text-left p-4 rounded-2xl border-2 transition-all duration-200 flex items-start justify-between gap-3 ';
+                  'w-full text-left px-4 py-3 rounded-2xl border-2 transition-all duration-200 flex items-start justify-between gap-3 overflow-visible ';
 
                 if (!isAnswered) {
                   optionClasses +=
@@ -257,8 +257,8 @@ export const Quiz: React.FC<QuizProps> = ({ topic, onBack, onComplete }) => {
                     disabled={isAnswered}
                     className={optionClasses}
                   >
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[clamp(14px,4vw,16px)] pt-0.5">
+                    <div className="flex-1 min-w-0 overflow-visible">
+                      <div className="text-[clamp(14px,4vw,16px)] leading-7 overflow-visible">
                         <MathText content={option} />
                       </div>
 
@@ -314,11 +314,13 @@ export const Quiz: React.FC<QuizProps> = ({ topic, onBack, onComplete }) => {
                     key={idx}
                     className="flex flex-col sm:flex-row gap-4 p-4 rounded-2xl border-2 border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-800/50"
                   >
-                    <div className="flex-1 text-[clamp(14px,4vw,16px)] text-gray-800 dark:text-slate-200">
+                    <div className="flex-1 text-[clamp(14px,4vw,16px)] text-gray-800 dark:text-slate-200 overflow-visible">
                       <div className="font-bold mb-1 text-indigo-500 uppercase tracking-widest text-xs">
                         Đáp án {String.fromCharCode(97 + idx)}
                       </div>
-                      <MathText content={stmt} />
+                      <div className="leading-7 overflow-visible">
+                        <MathText content={stmt} />
+                      </div>
                     </div>
                     <div className="flex gap-2 shrink-0 self-start sm:self-center">
                       <button
@@ -395,7 +397,7 @@ export const Quiz: React.FC<QuizProps> = ({ topic, onBack, onComplete }) => {
             <h4 className="font-semibold text-blue-900 dark:text-blue-300 mb-2 text-sm uppercase tracking-wider">
               Giải thích
             </h4>
-            <div className="text-blue-800 dark:text-blue-200 text-[clamp(13px,3.5vw,15px)] leading-relaxed">
+            <div className="text-blue-800 dark:text-blue-200 text-[clamp(13px,3.5vw,15px)] leading-relaxed overflow-visible">
               <MathText content={question.explanation} />
             </div>
           </motion.div>

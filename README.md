@@ -1,486 +1,655 @@
 
+# 📚 HỆ THỐNG TẠO APP HỌC TẬP TÁI SỬ DỤNG
 
-# 📚 HỆ THỐNG QUẢN LÝ HỌC TẬP TỰ ĐỘNG
+## Build 1 lần, nhân bản nhiều môn/lớp, cập nhật OTA, lưu điểm tự động
 
-## OTA Update + Google Sheets Analytics
+**Phát triển bởi:** TontonYuta
+**Mục tiêu:** Dùng một bộ khung duy nhất để tạo nhanh nhiều app học tập khác nhau như:
 
-> **Author:** TontonYuta
-> **Purpose:** Tự động hóa việc cập nhật ứng dụng học tập và thu thập dữ liệu điểm số của học sinh thông qua **Google Apps Script + Google Sheets + Github Releases**.
+* Toán 6
+* Toán 7
+* Lý 6
+* Lý 7
+* Hoá 8
+* Văn 6
+* ...
 
----
+Mỗi app có thể:
 
-# 🎯 1. Tổng quan hệ thống
-
-Hệ thống này cho phép:
-
-* 📱 App học tập tự động gửi điểm số của học sinh lên server
-* 📊 Google Sheets tự động lưu và thống kê dữ liệu
-* 🔄 App tự động kiểm tra cập nhật OTA
-* 📦 Build script tự động tạo bản cập nhật
-* 🚀 Github tự động lưu trữ bản update
-* 📧 Gmail gửi báo cáo
-
----
-
-# 🧠 Kiến trúc hệ thống
-
-```
-Mobile App
-     ↓
-Google Apps Script API
-     ↓
-Google Sheets (Database)
-     ↓
-Statistics Engine
-     ↓
-Dashboard + Gmail Report
-     ↓
-OTA Update System
-     ↓
-Github Releases
-```
-
-Luồng hoạt động:
-
-```
-Học sinh làm bài
-      ↓
-App gửi điểm lên Google Script
-      ↓
-Script ghi dữ liệu vào Sheet
-      ↓
-Script cập nhật bảng thống kê
-      ↓
-Admin xem Dashboard
-```
+* học và làm bài trên điện thoại
+* lưu điểm tự động lên Google Sheets
+* nhận cập nhật bài mới qua OTA
+* tách riêng từng môn/lớp để không bị lẫn dữ liệu
 
 ---
 
-# 📁 2. Cấu trúc thư mục dự án
+# 1. Hệ thống này dùng để làm gì
 
-```
-project/
-│
-├── src/
-│   └── config.ts
-│
-├── android/
-│   └── Android Studio project
-│
-├── build.bat
-│
-├── icon.png
-├── splash.png
-│
-└── README.md
-```
+Bộ khung này giúp bạn không phải làm lại từ đầu mỗi lần tạo app mới.
 
-### Ý nghĩa từng file
+Thay vì mỗi môn là một project hoàn toàn khác nhau, bạn chỉ cần:
 
-| File         | Chức năng                      |
-| ------------ | ------------------------------ |
-| `config.ts`  | Chứa API URL và version        |
-| `build.bat`  | Script tự động build và deploy |
-| `android/`   | Mã nguồn Android               |
-| `icon.png`   | Icon ứng dụng                  |
-| `splash.png` | Màn hình chờ                   |
+* clone bộ khung
+* đổi tên app
+* đổi dữ liệu câu hỏi
+* đổi cấu hình Google Sheets / OTA
+* build lại
+
+Từ đó bạn có thể tạo ra nhiều app cùng kiểu giao diện nhưng khác:
+
+* tên môn
+* nội dung bài học
+* ngân hàng câu hỏi
+* sheet lưu điểm
+* repo cập nhật OTA
 
 ---
 
-# ⚙️ 3. Thiết lập hệ thống lần đầu
+# 2. Mỗi app nên tách riêng những gì
 
-## Bước 1: Tạo Google Sheets
+Để dễ quản lý, mỗi app mới nên có riêng:
 
-Tạo một file mới:
+* **một thư mục project riêng**
+* **một repository GitHub riêng**
+* **một Google Sheet riêng**
+* **một Google Apps Script Web App riêng**
+* **một appId riêng**
+* **một tên app riêng**
+* **một bộ dữ liệu câu hỏi riêng**
 
-```
-Diem_Mon_Toan_6
-```
+Ví dụ:
 
-Trong file sẽ có 3 sheet:
+## App Toán 6
 
-```
-Sheet1
-Stats
-Config
+* Repo: `math6`
+* appId: `com.tontonyuta.math6`
+* Google Sheet: `Diem_Toan_6`
+* API Web App: riêng cho Toán 6
+
+## App Lý 7
+
+* Repo: `physics7`
+* appId: `com.tontonyuta.physics7`
+* Google Sheet: `Diem_Ly_7`
+* API Web App: riêng cho Lý 7
+
+Làm vậy sẽ tránh:
+
+* app này đè app kia
+* điểm bị trộn giữa các môn
+* update OTA sai app
+* link update bị lẫn
+
+---
+
+# 3. Cấu trúc thư mục chuẩn
+
+Bạn nên giữ cấu trúc project ổn định như sau:
+
+```bash
+project-root/
+├─ src/
+│  ├─ components/
+│  ├─ data/
+│  │  ├─ chapters.ts
+│  │  └─ questions/
+│  │     ├─ chapter1.ts
+│  │     ├─ chapter1-exams.ts
+│  │     ├─ chapter2.ts
+│  │     ├─ chapter2-exams.ts
+│  │     └─ ...
+│  ├─ services/
+│  │  └─ googleSheets.ts
+│  ├─ config.ts
+│  ├─ types.ts
+│  └─ App.tsx
+├─ public/
+│  └─ question-assets/
+├─ android/
+├─ capacitor.config.ts hoặc capacitor.config.json
+├─ package.json
+├─ build.bat
+├─ icon.png
+├─ splash.png
+└─ README.md
 ```
 
 ---
 
-## Bước 2: Cài đặt Google Apps Script
+# 4. Những file quan trọng nhất
 
-Vào
+## `src/config.ts`
 
+Chứa các biến cấu hình như:
+
+* version app
+* link kiểm tra phiên bản
+* link API Google Script
+
+Ví dụ:
+
+```ts
+export const APP_VERSION = '1.0.0';
+export const API_URL = 'https://script.google.com/macros/s/xxxxx/exec';
+export const VERSION_CHECK_URL = 'https://raw.githubusercontent.com/your-repo/version.json';
 ```
-Extensions → Apps Script
+
+## `capacitor.config.*`
+
+Chứa:
+
+* `appId`
+* `appName`
+
+Ví dụ:
+
+```ts
+appId: 'com.tontonyuta.math12',
+appName: 'Toán 12',
 ```
 
-Tạo file:
+## `src/data/`
 
-```
-Code.gs
-```
+Chứa toàn bộ dữ liệu bài học, chương, đề kiểm tra.
 
-Dán toàn bộ script backend vào.
+## `build.bat`
+
+File build tự động, có thể dùng để:
+
+* đổi version
+* build web
+* sync android
+* nén OTA
+* upload release
+* báo Google Sheets
+
+## `public/question-assets/`
+
+Chứa ảnh câu hỏi:
+
+* đồ thị
+* hình học
+* bảng biến thiên
+* ảnh đáp án
 
 ---
 
-## Bước 3: Deploy Web App
+# 5. Cách clone một app mới từ app cũ
+
+Giả sử bạn đã có app **Toán 12**, và giờ muốn tạo **Lý 7**.
+
+## Bước 1: copy nguyên project
+
+Sao chép thư mục project cũ sang thư mục mới.
+
+Ví dụ:
+
+* từ `math12`
+* thành `physics7`
+
+## Bước 2: đổi tên thư mục project
+
+Ví dụ:
+
+* `G:/AppDayToan/math12`
+* thành `G:/AppDayToan/physics7`
+
+## Bước 3: mở project mới và sửa các thông tin nhận diện
+
+Bạn cần sửa ít nhất các mục sau:
+
+### Trong `capacitor.config.ts` hoặc `capacitor.config.json`
+
+* `appId`
+* `appName`
+
+Ví dụ:
+
+```ts
+appId: 'com.tontonyuta.physics7',
+appName: 'Lý 7',
+```
+
+### Trong `src/config.ts`
+
+* version ban đầu
+* `API_URL`
+* `VERSION_CHECK_URL`
+
+### Trong `package.json`
+
+nếu muốn, đổi:
+
+* `name`
+* `description`
+
+Ví dụ:
+
+```json
+"name": "physics7-app"
+```
+
+### Trong giao diện
+
+Nếu màn hình chính có tiêu đề cứng như:
+
+* Toán 12
+* Ứng dụng đạo hàm
+
+thì sửa lại cho đúng môn mới.
+
+---
+
+# 6. Quy trình chuẩn để tạo app mới cho môn khác
+
+## Bước 1: tạo Google Sheet mới
+
+Tạo một file Google Sheets mới cho đúng app đó.
+
+Ví dụ:
+
+* `Diem_Toan_6`
+* `Diem_Toan_7`
+* `Diem_Ly_6`
+* `Diem_Ly_7`
+
+Mỗi app một sheet riêng.
+
+## Bước 2: tạo Apps Script mới
+
+Trong Google Sheet:
+
+* vào **Extensions > Apps Script**
+* dán file `Code.gs`
+
+Trong script, sửa:
+
+* email nhận báo cáo
+* tên sheet nếu cần
+* mật khẩu bảo vệ nếu có
+
+## Bước 3: deploy Web App
 
 Chọn:
 
-```
-Deploy → New Deployment
-```
+* **Deploy > New deployment**
+* Type: **Web app**
+* Access: **Anyone**
 
-Type:
+Sau đó copy URL.
 
-```
-Web App
-```
+## Bước 4: dán URL vào project
 
-Cấu hình:
+Mở `src/config.ts` và thay:
 
-```
-Execute as: Me
-Access: Anyone
+```ts
+export const API_URL = '...';
 ```
 
-Sau đó copy URL:
+bằng URL Web App mới.
 
-```
-https://script.google.com/macros/s/XXXX/exec
-```
+## Bước 5: tạo repo GitHub mới
 
----
-
-# 🔌 4. API Specification
-
-## API gửi điểm học sinh
-
-### Endpoint
-
-```
-POST /exec
-```
-
-### Header
-
-```
-Content-Type: application/json
-```
-
-### Request
-
-```json
-{
- "studentName": "Hoàng",
- "topicTitle": "Phân số",
- "score": 3,
- "totalQuestions": 5,
- "appVersion": "2.1.0"
-}
-```
-
-### Response
-
-```json
-{
- "status": "success"
-}
-```
-
----
-
-# 🔄 5. OTA Update API
-
-App sẽ kiểm tra update bằng request:
-
-```
-GET /exec
-```
-
-### Response
-
-```json
-{
- "version": "2.2.0",
- "message": "Đã có bài tập mới",
- "updateUrl": "https://github.com/username/repo/releases/download/v2.2.0/update.zip"
-}
-```
-
----
-
-# 🔐 6. API cập nhật phiên bản (Admin Only)
-
-Script hỗ trợ cập nhật version từ file `.bat`.
-
-### Request
-
-```
-POST /exec
-```
-
-Body:
-
-```json
-{
- "action": "update_version",
- "secret": "TontonYuta_Dep_Trai_2026",
- "newVersion": "2.2.0"
-}
-```
-
-### Response
-
-```json
-{
- "status": "success"
-}
-```
-
----
-
-# 📊 7. Cấu trúc Google Sheets
-
-## Sheet1 (Log dữ liệu)
-
-| Thời gian  | Học sinh | Bài học | Điểm | Version |
-| ---------- | -------- | ------- | ---- | ------- |
-| 14/03/2026 | Hoàng    | Phân số | 3/5  | 2.1.0   |
-
----
-
-## Stats (Thống kê)
-
-| Học sinh | Số bài | Tổng đúng | Tổng câu | Điểm TB |
-| -------- | ------ | --------- | -------- | ------- |
-| Hoàng    | 5      | 12        | 20       | 6.0     |
-
-Script sẽ tự động tính toán.
-
----
-
-## Config (OTA)
-
-| Key     | Value             |
-| ------- | ----------------- |
-| Version | 2.1.0             |
-| Message | Đã có bài tập mới |
-
----
-
-# ⚡ 8. Quy trình sử dụng hàng ngày
-
-Khi muốn phát hành bài tập mới:
-
-### Bước 1
-
-Chạy
-
-```
-build.bat
-```
-
----
-
-### Bước 2
-
-Nhập version mới
-
-```
-2.2.0
-```
-
----
-
-### Bước 3
-
-Script tự động:
-
-```
-Build APK
-Zip update
-Upload Github
-Update Google Sheets
-Send Gmail report
-```
-
----
-
-### Bước 4
-
-Học sinh mở app
-
-App sẽ thấy:
-
-```
-Đã có bài tập mới
-```
-
-Bấm update → tải file `update.zip`.
-
----
-
-# 📧 9. Báo cáo Gmail
-
-Hệ thống có thể gửi mail khi:
-
-```
-Có version mới
-```
+Mỗi app nên có repo riêng.
 
 Ví dụ:
 
-```
-Subject: Update mới
+* `math6`
+* `math7`
+* `physics6`
+* `physics7`
 
-Version: 2.2.0
-Repo: math6
-Time: 14/03/2026
-```
+Lý do:
 
----
+* OTA của mỗi app có link riêng
+* release riêng
+* version riêng
+* không lẫn file update
 
-# 🛡 10. Security Notes
+## Bước 6: sửa link OTA
 
-Để tránh phá hoại hệ thống:
+Nếu app của bạn dùng OTA qua GitHub Releases, hãy đổi:
 
-### Không public secret
+* `VERSION_CHECK_URL`
+* hoặc đường dẫn release/update
 
-```
-TontonYuta_Dep_Trai_2026
-```
-
----
-
-### Không commit file build.bat lên repo public
-
-Vì file có chứa:
-
-```
-Github token
-secret update
-```
+để trỏ đúng repo mới.
 
 ---
 
-### Thay secret định kỳ
+# 7. Những thứ bắt buộc phải đổi khi tạo app mới
 
-Khuyến nghị:
+Đây là checklist rất quan trọng.
 
-```
-Mỗi học kỳ thay secret
-```
+## Bắt buộc phải đổi
 
----
+* tên thư mục project
+* `appId`
+* `appName`
+* `API_URL`
+* `VERSION_CHECK_URL`
+* repo GitHub
+* dữ liệu trong `src/data/`
+* icon/splash nếu muốn app nhìn khác nhau
 
-# 🧰 11. Troubleshooting
+## Nên đổi
 
-| Lỗi              | Nguyên nhân          | Cách sửa          |
-| ---------------- | -------------------- | ----------------- |
-| 401              | Chưa cấp quyền Gmail | Run script 1 lần  |
-| 411              | Sai header           | Thêm Content-Type |
-| App không update | Sai version          | Kiểm tra Config   |
-| Stats lỗi        | Dữ liệu rác          | Xóa dòng sai      |
-
----
-
-# 💾 12. Backup dữ liệu tự động
-
-Để tránh mất dữ liệu, script backup mỗi tuần.
-
-```javascript
-function weeklyBackup(){
-
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-
-  var file = DriveApp.getFileById(ss.getId());
-
-  var backupName = "Backup_" +
-    Utilities.formatDate(new Date(),"GMT+7","yyyy-MM-dd");
-
-  file.makeCopy(backupName);
-}
-```
-
-Trigger:
-
-```
-Time Driven → Weekly
-```
+* tên package trong `package.json`
+* tiêu đề trong README
+* tên Google Sheet
+* tên Apps Script deployment
+* logo app
+* màu chủ đạo nếu muốn phân biệt môn
 
 ---
 
-# 📈 13. Mở rộng hệ thống
+# 8. Cách tổ chức dữ liệu để clone dễ nhất
 
-Có thể nâng cấp thêm:
+Muốn clone app nhanh, bạn nên tách rõ:
 
-### Dashboard học sinh
+## Phần khung chung
 
-* biểu đồ tiến bộ
-* ranking
+Giữ nguyên cho mọi app:
+
+* `App.tsx`
+* `Quiz.tsx`
+* `Review.tsx`
+* `Result.tsx`
+* `types.ts`
+* `googleSheets.ts`
+* `build.bat`
+
+## Phần thay theo môn/lớp
+
+Đổi theo từng app:
+
+* `src/data/chapters.ts`
+* `src/data/questions/...`
+* `public/question-assets/...`
+* `icon.png`
+* `splash.png`
+* `src/config.ts`
+
+Như vậy khi clone app mới, bạn chỉ chạm vào đúng vài chỗ cần đổi.
 
 ---
 
-### Learning analytics
+# 9. Quy trình làm việc hằng ngày
 
-* bài nào sai nhiều
-* chủ đề khó
+Khi bạn muốn cập nhật bài mới cho một app:
 
----
+## Bước 1
 
-### Notification
-
-* gửi thông báo khi có bài mới
-
----
-
-# 🏫 14. Sử dụng cho nhiều môn
-
-Khuyến nghị:
-
-```
-Mỗi môn → 1 Repo Github
-Mỗi môn → 1 Google Sheet
-```
+Mở đúng project app đó.
 
 Ví dụ:
 
+* muốn cập nhật Toán 7 thì mở project `math7`
+* muốn cập nhật Lý 6 thì mở project `physics6`
+
+## Bước 2
+
+Sửa dữ liệu:
+
+* thêm câu hỏi
+* thêm đề mới
+* thêm ảnh vào `public/question-assets`
+
+## Bước 3
+
+Tăng version trong `src/config.ts`
+
+Ví dụ:
+
+```ts
+export const APP_VERSION = '1.0.1';
 ```
-math6
-physics6
-chemistry6
+
+## Bước 4
+
+Chạy `build.bat`
+
+## Bước 5
+
+Đợi script:
+
+* build app
+* sync android
+* tạo gói update
+* upload release
+* ghi log nếu có
+
+## Bước 6
+
+Người dùng mở app và nhận cập nhật mới
+
+---
+
+# 10. Quy tắc đặt tên để về sau không rối
+
+## Tên project
+
+* `math6`
+* `math7`
+* `physics6`
+* `physics7`
+
+## appId
+
+* `com.tontonyuta.math6`
+* `com.tontonyuta.math7`
+* `com.tontonyuta.physics6`
+* `com.tontonyuta.physics7`
+
+## Google Sheet
+
+* `Diem_Toan_6`
+* `Diem_Toan_7`
+* `Diem_Ly_6`
+* `Diem_Ly_7`
+
+## File đề
+
+* `chapter1-exams.ts`
+* `chapter2-exams.ts`
+
+## ID topic
+
+* topic học: `c1-t1`, `c1-t2`
+* đề kiểm tra: `c1-e1`, `c1-e2`
+
+## Ảnh câu hỏi
+
+Ví dụ:
+
+```bash
+public/question-assets/c1/de1/p1-q2.png
+public/question-assets/c1/de1/p1-q7.png
+public/question-assets/c1/de1/p2-q2.png
 ```
 
 ---
 
-# 🚀 15. Roadmap nâng cấp
+# 11. Cách tổ chức để làm nhiều app mà không lẫn
 
-Trong tương lai có thể thêm:
+Bạn nên có thư mục cha như này:
 
-* Web Admin Panel
-* Firebase push notification
-* AI gợi ý bài tập
-* thống kê theo lớp
+```bash
+G:/AppDayToan/
+├─ math6/
+├─ math7/
+├─ math12/
+├─ physics6/
+├─ physics7/
+└─ chemistry8/
+```
+
+Mỗi app là một project độc lập.
+
+Đừng để:
+
+* nhiều môn chung một repo
+* nhiều app chung một `appId`
+* nhiều app chung một Google Sheet
+
+Vì rất dễ loạn.
 
 ---
 
-# 📜 License
+# 12. `build.bat` nên làm gì
 
-```
-MIT License
-```
+Một file `build.bat` tốt nên hỗ trợ tối thiểu:
+
+* hỏi version mới
+* cập nhật version
+* chạy `npm run build`
+* chạy `npx cap sync android`
+* build Android
+* nén OTA thành `update.zip`
+* upload lên release
+* gọi API log/update nếu cần
+
+Nếu bạn muốn clone dễ, hãy viết `build.bat` sao cho chỉ cần sửa:
+
+* tên repo
+* tên app
+* link release
+* API URL
+
+là dùng lại được.
 
 ---
 
-# ❤️ Credits
+# 13. Cách đổi icon và splash cho app mới
 
-```
-Author: TontonYuta
-System: OTA Learning Platform
-Year: 2026
-```
+Muốn phân biệt app dễ hơn, mỗi app nên có icon riêng.
+
+Ví dụ:
+
+* Toán 6: icon xanh dương
+* Toán 7: icon tím
+* Lý 6: icon xanh lá
+* Lý 7: icon cam
+
+Thay các file:
+
+* `icon.png`
+* `splash.png`
+
+rồi sync/build lại app.
 
 ---
+
+# 14. Các lỗi thường gặp
+
+## Lỗi 1: app mới cài đè app cũ
+
+**Nguyên nhân:** `appId` giống nhau
+**Cách sửa:** đổi `appId` khác hoàn toàn
+
+## Lỗi 2: điểm Toán 6 lại ghi vào sheet Lý 7
+
+**Nguyên nhân:** `API_URL` chưa đổi
+**Cách sửa:** tạo Web App riêng và dán đúng link mới
+
+## Lỗi 3: app hiện sai dữ liệu môn cũ
+
+**Nguyên nhân:** chưa thay `src/data/`
+**Cách sửa:** kiểm tra `chapters.ts` và các file câu hỏi
+
+## Lỗi 4: nhận 2 đề giống nhau
+
+**Nguyên nhân:** gộp đề 2 lần
+**Cách sửa:** chỉ gộp trong `chapterX.ts`, không gộp lại trong `chapters.ts`
+
+## Lỗi 5: ảnh câu hỏi không hiện
+
+**Nguyên nhân:** sai đường dẫn ảnh
+**Cách sửa:** kiểm tra thư mục `public/question-assets/...`
+
+## Lỗi 6: OTA không chạy
+
+**Nguyên nhân:** sai repo hoặc sai release URL
+**Cách sửa:** kiểm tra `VERSION_CHECK_URL`, repo, và file update
+
+---
+
+# 15. Mẫu quy trình clone nhanh nhất
+
+Ví dụ bạn muốn tạo **Toán 7** từ app **Toán 6**.
+
+## Làm theo đúng thứ tự này:
+
+1. copy thư mục `math6` thành `math7`
+2. đổi `appId` thành `com.tontonyuta.math7`
+3. đổi `appName` thành `Toán 7`
+4. tạo Google Sheet `Diem_Toan_7`
+5. tạo Apps Script Web App mới
+6. dán `API_URL` mới vào `src/config.ts`
+7. tạo repo GitHub mới `math7`
+8. sửa link OTA/version check
+9. thay dữ liệu trong `src/data/`
+10. chạy build
+
+Nếu giữ đúng checklist này, bạn có thể nhân bản app rất nhanh.
+
+---
+
+# 16. Gợi ý chiến lược lâu dài
+
+Nếu sau này bạn có nhiều app, nên chia thành 2 tầng:
+
+## Tầng 1: bộ khung gốc
+
+Một project “template” sạch, chưa gắn dữ liệu môn nào.
+
+Ví dụ:
+
+* `study-app-template`
+
+## Tầng 2: các app con
+
+Clone từ template ra:
+
+* `math6`
+* `math7`
+* `physics6`
+* `physics7`
+
+Cách này tốt hơn rất nhiều so với clone từ một app đã sửa lung tung.
+
+---
+
+# 17. Ghi chú bảo mật
+
+Nếu bạn đang dùng:
+
+* mật khẩu trong `build.bat`
+* token GitHub
+* khóa API
+* email nhận báo cáo
+
+thì không nên hard-code bừa bãi ở nhiều chỗ.
+
+Nên gom vào:
+
+* file cấu hình riêng
+* hoặc biến môi trường
+* hoặc file `.env` nếu project hỗ trợ
+
+---
+
+# 18. Kết luận
+
+Muốn clone app thật dễ, bạn chỉ cần nhớ nguyên tắc cốt lõi:
+
+**Một app = một project riêng + một repo riêng + một Google Sheet riêng + một appId riêng.**
+
+Còn code khung thì dùng lại gần như toàn bộ.
+
+Cách tổ chức tốt nhất cho bạn hiện tại là:
+
+* giữ một bộ khung chung
+* tách dữ liệu từng môn/lớp
+* tách riêng từng app
+* không gộp lung tung trong `chapters.ts`

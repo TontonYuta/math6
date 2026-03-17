@@ -27,3 +27,20 @@
   /* Màu chữ trong Dark Mode */
   --color-slate-100: #f5f5f7; 
 }
+.math-text,
+.math-text * {
+  overflow: visible;
+}
+
+.math-text .katex,
+.math-text .katex-html {
+  line-height: 1.35 !important;
+}
+
+.math-text .katex-display {
+  margin: 0.35em 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-top: 0.08em;
+  padding-bottom: 0.08em;
+}

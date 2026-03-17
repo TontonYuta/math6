@@ -6,7 +6,7 @@ export const chapter1CoreTopics: Topic[] = [
     id: 'c1-t1',
     title: 'Tập hợp số tự nhiên',
     description: 'Nhận biết tập hợp số tự nhiên, cách viết, kí hiệu và thứ tự trong tập hợp số tự nhiên.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q1-1-1',
@@ -84,7 +84,7 @@ export const chapter1CoreTopics: Topic[] = [
     id: 'c1-t2',
     title: 'Các phép tính với số tự nhiên',
     description: 'Thực hiện phép cộng, trừ, nhân, chia và vận dụng thứ tự thực hiện phép tính.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q1-2-1',
@@ -167,7 +167,7 @@ export const chapter1CoreTopics: Topic[] = [
     id: 'c1-t3',
     title: 'Lũy thừa với số mũ tự nhiên',
     description: 'Nhận biết lũy thừa, cơ số, số mũ và tính giá trị các lũy thừa đơn giản.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q1-3-1',
@@ -245,7 +245,7 @@ export const chapter1CoreTopics: Topic[] = [
     id: 'c1-t4',
     title: 'Thứ tự thực hiện phép tính',
     description: 'Thực hiện đúng thứ tự phép tính có ngoặc, lũy thừa, nhân chia, cộng trừ.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q1-4-1',
@@ -333,7 +333,7 @@ export const chapter1CoreTopics: Topic[] = [
     id: 'c1-t5',
     title: 'Ôn tập chương Số tự nhiên',
     description: 'Củng cố kiến thức về tập hợp số tự nhiên, phép tính, lũy thừa và thứ tự thực hiện phép tính.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=gVtCC8a5sDE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nZtFlrwCbs4&t=2504s',
     questions: [
       {
         id: 'q1-5-1',

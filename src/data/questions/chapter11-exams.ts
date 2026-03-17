@@ -230,12 +230,128 @@ export const chapter11ExamTopics: Topic[] = [
     }
   ]
 },
-  {
+{
     id: 'c11-e2',
     title: 'Đề thi số 2',
-    description: 'Đề thi ôn tập tổng hợp.',
+    description: 'Đề thi học kì 2 môn Toán lớp 6 - bài toán có lời văn về phân số, xác suất và đường thẳng/tia.',
     questions: [
-      // dán đề thi số 2 vào đây
+      {
+        id: 'c11-e2-q1',
+        type: 'single-choice',
+        text: 'Một bể nước đã chứa được $\\dfrac{3}{5}$ dung tích bể. Người ta bơm thêm $\\dfrac{1}{5}$ dung tích bể. Hỏi khi đó bể nước chứa được bao nhiêu phần dung tích bể?',
+        options: ['$\\dfrac{2}{5}$', '$\\dfrac{3}{10}$', '$\\dfrac{4}{5}$', '$\\dfrac{4}{10}$'],
+        correctAnswerIndex: 2,
+        explanation: 'Ta có $\\dfrac{3}{5}+\\dfrac{1}{5}=\\dfrac{4}{5}$. Vậy bể chứa được $\\dfrac{4}{5}$ dung tích.'
+      },
+      {
+        id: 'c11-e2-q2',
+        type: 'single-choice',
+        text: 'Một tấm vải dài $\\dfrac{7}{8}$ m. Người bán đã cắt đi $\\dfrac{3}{8}$ m. Hỏi tấm vải còn lại dài bao nhiêu mét?',
+        options: ['$\\dfrac{6}{8}$ m', '$\\dfrac{5}{8}$ m', '$\\dfrac{3}{8}$ m', '$\\dfrac{1}{2}$ m'],
+        correctAnswerIndex: 3,
+        explanation: 'Ta có $\\dfrac{7}{8}-\\dfrac{3}{8}=\\dfrac{4}{8}=\\dfrac{1}{2}$.'
+      },
+      {
+        id: 'c11-e2-q3',
+        type: 'single-choice',
+        text: 'Một lớp học có $\\dfrac{2}{3}$ số học sinh tham gia câu lạc bộ bóng đá, trong đó $\\dfrac{1}{2}$ số học sinh của câu lạc bộ là nam. Hỏi số học sinh nam trong câu lạc bộ chiếm bao nhiêu phần số học sinh cả lớp?',
+        options: ['$\\dfrac{1}{6}$', '$\\dfrac{1}{3}$', '$\\dfrac{2}{5}$', '$\\dfrac{3}{5}$'],
+        correctAnswerIndex: 1,
+        explanation: 'Số học sinh nam trong câu lạc bộ chiếm $\\dfrac{2}{3}\\times\\dfrac{1}{2}=\\dfrac{1}{3}$ số học sinh cả lớp.'
+      },
+      {
+        id: 'c11-e2-q4',
+        type: 'single-choice',
+        text: 'Một hộp có 8 tấm thẻ giống nhau, được đánh số từ 1 đến 8. Rút ngẫu nhiên 1 thẻ. Sau 40 lần thử, có 18 lần rút được thẻ mang số chẵn. Xác suất thực nghiệm của biến cố “rút được thẻ mang số chẵn” là:',
+        options: ['$\\dfrac{18}{40}$', '$\\dfrac{22}{40}$', '$\\dfrac{1}{2}$', '$\\dfrac{2}{5}$'],
+        correctAnswerIndex: 0,
+        explanation: 'Xác suất thực nghiệm bằng số lần xảy ra biến cố chia cho tổng số lần thử, nên bằng $\\dfrac{18}{40}$.'
+      },
+      {
+        id: 'c11-e2-q5',
+        type: 'single-choice',
+        text: 'Trên một con đường thẳng, người ta cắm ba cọc tiêu A, B, C sao cho điểm B nằm giữa A và C. Khi đó số đoạn thẳng tạo thành từ ba điểm đó là:',
+        options: ['1', '2', '3', '4'],
+        correctAnswerIndex: 2,
+        explanation: 'Ba điểm A, B, C tạo được 3 đoạn thẳng là AB, BC và AC.'
+      },
+      {
+        id: 'c11-e2-q6',
+        type: 'single-choice',
+        text: 'Một tia sáng xuất phát từ điểm O và đi qua điểm M. Cách viết đúng là:',
+        options: ['Tia MO', 'Tia OM', 'Đường thẳng OM', 'Đoạn thẳng OM'],
+        correctAnswerIndex: 1,
+        explanation: 'Tia có gốc là O và đi qua M được viết là tia OM.'
+      },
+      {
+        id: 'c11-e2-q7',
+        type: 'single-choice',
+        text: 'Một sợi dây dài 12 m được đánh dấu điểm M chính giữa hai đầu A và B. Hỏi độ dài đoạn AM là bao nhiêu?',
+        options: ['3 m', '4 m', '5 m', '6 m'],
+        correctAnswerIndex: 3,
+        explanation: 'Vì M là điểm chính giữa nên $AM = MB = 12:2 = 6$ (m).'
+      },
+      {
+        id: 'c11-e2-q8',
+        type: 'single-choice',
+        text: 'Một cửa hàng bán được $\\dfrac{1}{4}$ số bánh trong buổi sáng và $\\dfrac{1}{2}$ số bánh trong buổi chiều. Hỏi cả ngày cửa hàng đã bán được bao nhiêu phần số bánh?',
+        options: ['$\\dfrac{2}{6}$', '$\\dfrac{3}{4}$', '$\\dfrac{1}{4}$', '$\\dfrac{2}{4}$'],
+        correctAnswerIndex: 1,
+        explanation: 'Ta có $\\dfrac{1}{4}+\\dfrac{1}{2}=\\dfrac{1}{4}+\\dfrac{2}{4}=\\dfrac{3}{4}$.'
+      },
+
+      {
+        id: 'c11-e2-q9',
+        type: 'true-false',
+        text: 'Một hộp có 20 viên bi gồm: 8 viên bi đỏ, 5 viên bi xanh, 7 viên bi vàng. Chọn ngẫu nhiên 1 viên bi từ hộp. Xét tính đúng sai của các phát biểu sau:',
+        options: [],
+        correctAnswerIndex: 0,
+        trueFalseStatements: [
+          'Xác suất lấy được viên bi đỏ là $\\dfrac{8}{20}$.',
+          'Xác suất lấy được viên bi xanh lớn hơn xác suất lấy được viên bi vàng.',
+          'Tổng ba phân số $\\dfrac{8}{20}$, $\\dfrac{5}{20}$ và $\\dfrac{7}{20}$ bằng 1.',
+          'Xác suất lấy được viên bi vàng là $\\dfrac{7}{20}$.'
+        ],
+        trueFalseAnswers: [true, false, true, true],
+        explanation: 'Ta có số bi đỏ là 8, xanh là 5, vàng là 7 trên tổng 20 viên. Vì $\\dfrac{5}{20}<\\dfrac{7}{20}$ nên phát biểu b sai; còn $\\dfrac{8}{20}+\\dfrac{5}{20}+\\dfrac{7}{20}=1$.'
+      },
+
+      {
+        id: 'c11-e2-q10',
+        type: 'short-answer',
+        text: 'Một bạn học sinh đọc được $\\dfrac{2}{5}$ quyển truyện trong ngày thứ nhất và đọc tiếp $\\dfrac{1}{4}$ quyển truyện trong ngày thứ hai. Hỏi sau hai ngày, bạn đó đã đọc được bao nhiêu phần quyển truyện?',
+        options: [],
+        correctAnswerIndex: 0,
+        answerText: '13/20',
+        explanation: 'Ta có $\\dfrac{2}{5}+\\dfrac{1}{4}=\\dfrac{8}{20}+\\dfrac{5}{20}=\\dfrac{13}{20}$.'
+      },
+      {
+        id: 'c11-e2-q11',
+        type: 'short-answer',
+        text: 'Một thùng gạo nặng 30 kg. Buổi sáng cửa hàng bán được $\\dfrac{1}{3}$ số gạo trong thùng, buổi chiều bán tiếp $\\dfrac{1}{5}$ số gạo trong thùng. Hỏi cả ngày cửa hàng bán được bao nhiêu ki-lô-gam gạo?',
+        options: [],
+        correctAnswerIndex: 0,
+        answerText: '16',
+        explanation: 'Buổi sáng bán $30\\times\\dfrac{1}{3}=10$ (kg), buổi chiều bán $30\\times\\dfrac{1}{5}=6$ (kg). Cả ngày bán $10+6=16$ (kg).'
+      },
+      {
+        id: 'c11-e2-q12',
+        type: 'short-answer',
+        text: 'Trong một trò chơi, bạn Nam quay 24 lần thì thấy kim chỉ vào màu đỏ 10 lần. Nếu mỗi lần kim chỉ vào màu đỏ thì Nam được 1 điểm, các trường hợp khác không được điểm. Hỏi xác suất thực nghiệm để Nam được điểm là bao nhiêu?',
+        options: [],
+        correctAnswerIndex: 0,
+        answerText: '5/12',
+        explanation: 'Xác suất thực nghiệm để Nam được điểm là $\\dfrac{10}{24}=\\dfrac{5}{12}$.'
+      },
+      {
+        id: 'c11-e2-q13',
+        type: 'short-answer',
+        text: 'Trên một con đường thẳng có ba điểm A, B, C theo thứ tự đó. Biết AC dài 18 m và B là trung điểm của đoạn thẳng AC. Tính độ dài AB.',
+        options: [],
+        correctAnswerIndex: 0,
+        answerText: '9',
+        explanation: 'Vì B là trung điểm của AC nên $AB = BC = AC:2 = 18:2 = 9$ (m).'
+      }
     ]
   },
   {
