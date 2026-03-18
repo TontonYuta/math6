@@ -7,7 +7,7 @@ android {
         applicationId "com.tontonyuta.math6"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3172211
+        versionCode 3190100
         versionName '2.1.9'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {

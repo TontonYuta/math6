@@ -26,7 +26,7 @@ const renderQuestionImages = (images?: QuestionImage[]) => {
       {images.map((image, index) => (
         <figure
           key={`${image.src}-${index}`}
-          className="overflow-hidden rounded-2xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900"
+          className="overflow-hidden rounded-[1.5rem] border-2 border-orange-100 dark:border-orange-900/40 bg-white/80 dark:bg-[#1a120c]/80 shadow-sm"
         >
           <img
             src={image.src}
@@ -35,7 +35,7 @@ const renderQuestionImages = (images?: QuestionImage[]) => {
             loading="lazy"
           />
           {image.caption && (
-            <figcaption className="px-4 py-3 text-sm text-gray-600 dark:text-slate-300 border-t border-gray-200 dark:border-slate-700 text-center italic">
+            <figcaption className="px-4 py-3 text-sm text-slate-600 dark:text-orange-100/75 border-t border-orange-100 dark:border-orange-900/40 text-center italic">
               {image.caption}
             </figcaption>
           )}
@@ -48,18 +48,25 @@ const renderQuestionImages = (images?: QuestionImage[]) => {
 export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) => {
   return (
     <div className="w-full max-w-3xl mx-auto p-4 pb-12 antialiased">
-      <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 sticky top-0 bg-white/70 dark:bg-black/70 backdrop-blur-xl z-30 py-4 sm:py-6 px-2 -mx-2">
+      <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 sticky top-0 bg-white/70 dark:bg-[#120c07]/75 backdrop-blur-xl z-30 py-4 sm:py-6 px-2 -mx-2 border-b border-orange-100/70 dark:border-orange-900/20">
         <button
           onClick={onBack}
-          className="p-2 sm:p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-all active:scale-90 shrink-0"
+          className="p-2 sm:p-2.5 text-slate-500 dark:text-orange-100/70 hover:bg-orange-50 dark:hover:bg-[#24160b] rounded-full transition-all active:scale-90 shrink-0"
+          aria-label="Quay lại"
         >
           <ArrowLeft size={24} />
         </button>
+
         <div className="flex-1">
-          <h2 className="text-[clamp(20px,5vw,24px)] font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            Xem lại bài làm
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100/80 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-900/40 text-orange-700 dark:text-orange-300 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] mb-2">
+            <span>📜</span>
+            <span>Cuộn xem lại</span>
+          </div>
+
+          <h2 className="text-[clamp(20px,5vw,24px)] font-black text-slate-900 dark:text-orange-100 tracking-tight leading-tight">
+            Xem Lại Nhiệm Vụ
           </h2>
-          <p className="text-[clamp(12px,3vw,14px)] text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider line-clamp-1">
+          <p className="text-[clamp(12px,3vw,14px)] text-slate-500 dark:text-orange-100/60 font-bold uppercase tracking-wider line-clamp-1">
             {topic.title}
           </p>
         </div>
@@ -79,7 +86,9 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
             isCorrect =
               question.trueFalseAnswers?.every((ans, idx) => ans === tfUserAnswer[idx]) ?? false;
           } else if (questionType === 'short-answer') {
-            isCorrect = normalizeString(String(userAnswer || '')) === normalizeString(question.answerText || '');
+            isCorrect =
+              normalizeString(String(userAnswer || '')) ===
+              normalizeString(question.answerText || '');
           }
 
           return (
@@ -89,15 +98,15 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: qIndex * 0.05 }}
-              className={`bg-white dark:bg-slate-800/50 p-5 sm:p-6 rounded-[2rem] border shadow-sm ${
+              className={`bg-white/90 dark:bg-[#1b120b]/90 backdrop-blur-md p-5 sm:p-6 rounded-[2rem] border-2 shadow-[0_10px_24px_rgba(0,0,0,0.08)] ${
                 isCorrect
-                  ? 'border-green-100 dark:border-green-900/20'
-                  : 'border-red-100 dark:border-red-900/20'
+                  ? 'border-green-200 dark:border-green-900/30'
+                  : 'border-red-200 dark:border-red-900/30'
               }`}
             >
               <div className="flex items-start gap-3 sm:gap-4 mb-2">
                 <div
-                  className={`shrink-0 w-8 h-8 rounded-xl flex items-center justify-center font-bold text-[clamp(13px,3.5vw,14px)] mt-0.5 ${
+                  className={`shrink-0 w-8 h-8 rounded-xl flex items-center justify-center font-black text-[clamp(13px,3.5vw,14px)] mt-0.5 ${
                     isCorrect
                       ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400'
                       : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400'
@@ -105,7 +114,8 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
                 >
                   {qIndex + 1}
                 </div>
-                <div className="text-[clamp(16px,4.5vw,18px)] font-bold text-slate-900 dark:text-slate-100 leading-snug">
+
+                <div className="text-[clamp(16px,4.5vw,18px)] font-black text-slate-900 dark:text-orange-50 leading-snug">
                   <MathText content={question.text} />
                 </div>
               </div>
@@ -120,17 +130,17 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
                     const optionImage = question.optionImages?.[oIndex] ?? null;
 
                     let optionClasses =
-                      'w-full text-left p-3 sm:p-4 rounded-2xl border transition-all flex items-start justify-between gap-3 ';
+                      'w-full text-left p-3 sm:p-4 rounded-[1.5rem] border-2 transition-all flex items-start justify-between gap-3 ';
 
                     if (isActualCorrect) {
                       optionClasses +=
-                        'border-green-500 bg-green-50/50 dark:bg-green-900/20 text-green-800 dark:text-green-300 font-bold';
+                        'border-green-500 bg-green-50/70 dark:bg-green-900/20 text-green-800 dark:text-green-300 font-black';
                     } else if (isUserChoice && !isActualCorrect) {
                       optionClasses +=
-                        'border-red-500 bg-red-50/50 dark:bg-red-900/20 text-red-800 dark:text-red-300';
+                        'border-red-500 bg-red-50/70 dark:bg-red-900/20 text-red-800 dark:text-red-300';
                     } else {
                       optionClasses +=
-                        'border-slate-100 dark:border-slate-700 opacity-60 text-slate-500 dark:text-slate-500';
+                        'border-orange-100 dark:border-orange-900/40 opacity-60 text-slate-500 dark:text-orange-100/50';
                     }
 
                     return (
@@ -139,7 +149,7 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
                           <MathText content={option} className="text-[clamp(14px,4vw,16px)] pt-0.5" />
 
                           {optionImage && (
-                            <div className="mt-3 overflow-hidden rounded-xl border border-gray-200 dark:border-slate-600">
+                            <div className="mt-3 overflow-hidden rounded-xl border-2 border-orange-100 dark:border-orange-900/40">
                               <img
                                 src={optionImage.src}
                                 alt={optionImage.alt || `Hình đáp án ${oIndex + 1}`}
@@ -147,7 +157,7 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
                                 loading="lazy"
                               />
                               {optionImage.caption && (
-                                <div className="px-3 py-2 text-xs text-gray-600 dark:text-slate-300 border-t border-gray-200 dark:border-slate-700">
+                                <div className="px-3 py-2 text-xs text-slate-600 dark:text-orange-100/75 border-t border-orange-100 dark:border-orange-900/40">
                                   {optionImage.caption}
                                 </div>
                               )}
@@ -178,20 +188,20 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
                     return (
                       <div
                         key={idx}
-                        className={`p-4 rounded-2xl border-2 flex flex-col sm:flex-row gap-3 ${
+                        className={`p-4 rounded-[1.5rem] border-2 flex flex-col sm:flex-row gap-3 ${
                           isChoiceCorrect
-                            ? 'border-green-100 bg-green-50/30 dark:border-green-900/30 dark:bg-green-900/10'
-                            : 'border-red-100 bg-red-50/30 dark:border-red-900/30 dark:bg-red-900/10'
+                            ? 'border-green-200 bg-green-50/40 dark:border-green-900/30 dark:bg-green-900/10'
+                            : 'border-red-200 bg-red-50/40 dark:border-red-900/30 dark:bg-red-900/10'
                         }`}
                       >
-                        <div className="flex-1 text-[clamp(14px,4vw,16px)] text-gray-800 dark:text-slate-200">
-                          <div className="font-bold mb-1 text-indigo-500 uppercase tracking-widest text-xs">
-                            Đáp án {String.fromCharCode(97 + idx)}
+                        <div className="flex-1 text-[clamp(14px,4vw,16px)] text-slate-800 dark:text-orange-100">
+                          <div className="font-black mb-1 text-orange-500 uppercase tracking-widest text-xs">
+                            Mệnh đề {String.fromCharCode(97 + idx)}
                           </div>
                           <MathText content={stmt} />
                         </div>
 
-                        <div className="flex flex-col gap-2 shrink-0 text-[13px] font-bold">
+                        <div className="flex flex-col gap-2 shrink-0 text-[13px] font-black">
                           <div
                             className={`px-3 py-1.5 rounded-lg flex items-center justify-between gap-2 ${
                               isChoiceCorrect
@@ -221,19 +231,23 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
               {questionType === 'short-answer' && (
                 <div className="mb-6 mt-6 flex flex-col sm:flex-row gap-4">
                   <div
-                    className={`flex-1 p-4 rounded-2xl border-2 text-center ${
+                    className={`flex-1 p-4 rounded-[1.5rem] border-2 text-center ${
                       isCorrect
                         ? 'border-green-500 bg-green-50 text-green-700 dark:bg-green-900/10 dark:text-green-300'
                         : 'border-red-500 bg-red-50 text-red-700 dark:bg-red-900/10 dark:text-red-300'
                     }`}
                   >
-                    <div className="text-xs uppercase tracking-widest mb-1 opacity-70">Bạn đã nhập</div>
+                    <div className="text-xs uppercase tracking-widest mb-1 opacity-70 font-bold">
+                      Bạn đã nhập
+                    </div>
                     <div className="font-black text-xl">{String(userAnswer || '(Để trống)')}</div>
                   </div>
 
                   {!isCorrect && (
-                    <div className="flex-1 p-4 rounded-2xl border-2 border-green-500 bg-green-50 text-green-700 dark:bg-green-900/10 dark:text-green-300 text-center">
-                      <div className="text-xs uppercase tracking-widest mb-1 opacity-70">Đáp án chính xác</div>
+                    <div className="flex-1 p-4 rounded-[1.5rem] border-2 border-green-500 bg-green-50 text-green-700 dark:bg-green-900/10 dark:text-green-300 text-center">
+                      <div className="text-xs uppercase tracking-widest mb-1 opacity-70 font-bold">
+                        Đáp án chuẩn
+                      </div>
                       <div className="font-black text-xl">{question.answerText}</div>
                     </div>
                   )}
@@ -242,14 +256,14 @@ export const Review: React.FC<ReviewProps> = ({ topic, userAnswers, onBack }) =>
 
               {question.explanation && (
                 <div className="mt-4 sm:mt-6">
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-4 sm:p-5 rounded-[1.5rem] border border-slate-100 dark:border-slate-800/50">
+                  <div className="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/10 p-4 sm:p-5 rounded-[1.5rem] border-2 border-orange-100 dark:border-orange-900/30">
                     <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                      <div className="w-1.5 h-4 bg-indigo-500 rounded-full"></div>
-                      <h4 className="font-bold text-slate-900 dark:text-slate-200 text-[clamp(12px,3vw,14px)] uppercase tracking-widest">
-                        Giải thích
+                      <div className="w-1.5 h-4 bg-orange-500 rounded-full"></div>
+                      <h4 className="font-black text-slate-900 dark:text-orange-200 text-[clamp(12px,3vw,14px)] uppercase tracking-widest">
+                        Bí kíp giải
                       </h4>
                     </div>
-                    <div className="text-slate-600 dark:text-slate-400 text-[clamp(13px,3.5vw,15px)] leading-relaxed">
+                    <div className="text-slate-700 dark:text-orange-100/80 text-[clamp(13px,3.5vw,15px)] leading-relaxed">
                       <MathText content={question.explanation} />
                     </div>
                   </div>
