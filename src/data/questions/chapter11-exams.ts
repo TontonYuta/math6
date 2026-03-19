@@ -354,14 +354,206 @@ export const chapter11ExamTopics: Topic[] = [
       }
     ]
   },
-  {
-    id: 'c11-e3',
-    title: 'Đề thi số 3',
-    description: 'Đề thi ôn tập tổng hợp.',
-    questions: [
-      // dán đề thi số 3 vào đây
-    ]
-  },
+{
+  id: 'c11-e3',
+  title: 'Đề thi số 3',
+  description: 'Đề thi nâng cao - Dạng toán phần trăm trong mua bán (khuyến mãi, lợi nhuận) và dạng toán tính ngược từ cuối với phân số/phần trăm.',
+  questions: [
+    {
+      id: 'c11-e3-q1',
+      type: 'single-choice',
+      text: 'Một chiếc tivi được niêm yết tại cửa hàng với giá 12 000 000 đồng. Nhân dịp khai trương, siêu thị giảm giá 15% so với giá niêm yết. Hỏi sau khi giảm giá, khách hàng phải trả bao nhiêu tiền (tính theo đơn vị triệu đồng)?',
+      options: ['10,2', '10,5', '11,2', '10,8'],
+      correctAnswerIndex: 0,
+      explanation: 'Giá tiền khách hàng phải trả chiếm $100\\% - 15\\% = 85\\%$ giá niêm yết. Số tiền thực tế phải trả là $12 \\times 85\\% = 10,2$ (triệu đồng).'
+    },
+    {
+      id: 'c11-e3-q2',
+      type: 'single-choice',
+      text: 'Một cửa hàng bán một chiếc điện thoại với giá 7 200 000 đồng và đạt mức lợi nhuận 20% so với giá nhập. Giá nhập của chiếc điện thoại đó là:',
+      options: ['5 760 000 đồng', '6 000 000 đồng', '5 800 000 đồng', '6 200 000 đồng'],
+      correctAnswerIndex: 1,
+      explanation: 'Giá bán bằng tổng của giá nhập (100%) và lợi nhuận (20%), tức là chiếm $100\\% + 20\\% = 120\\%$ giá nhập. Giá nhập của chiếc điện thoại là $7 200 000 : 120\\% = 6 000 000$ (đồng).'
+    },
+    {
+      id: 'c11-e3-q3',
+      type: 'short-answer',
+      text: 'Một siêu thị điện máy nhập về một mẫu máy giặt với giá vốn là 8 500 000 đồng. Siêu thị muốn bán mẫu máy giặt này với mức lợi nhuận 18% so với giá vốn. Hỏi siêu thị phải bán chiếc máy giặt đó với giá bao nhiêu (đơn vị: đồng)?',
+      options: [],
+      correctAnswerIndex: 0,
+      answerText: '10030000',
+      explanation: 'Mức giá bán ra sẽ chiếm $100\\% + 18\\% = 118\\%$ giá vốn. Giá bán của máy giặt là $8 500 000 \\times 118\\% = 10 030 000$ (đồng).'
+    },
+    {
+      id: 'c11-e3-q4',
+      type: 'true-false',
+      text: 'Một cửa hàng nhập về một lô áo sơ mi. Cửa hàng định giá bán (giá niêm yết) cho mỗi chiếc áo sao cho đạt lợi nhuận 25% so với giá nhập. Cuối năm, cửa hàng xả hàng và giảm giá 10% trên giá niêm yết. Xét tính đúng sai của các phát biểu sau:',
+      options: [],
+      correctAnswerIndex: 0,
+      trueFalseStatements: [
+        'Giá niêm yết bằng 125% giá nhập.',
+        'Giá bán thực tế sau khi giảm bằng 90% giá niêm yết.',
+        'Giá bán thực tế sau khi giảm bằng 115% giá nhập.',
+        'Cửa hàng vẫn có lãi 12,5% so với giá nhập đối với những chiếc áo bán giảm giá.'
+      ],
+      trueFalseAnswers: [true, true, false, true],
+      explanation: 'Giá niêm yết = 125% giá nhập. Giá sau giảm = 90% giá niêm yết = $90\\% \\times 125\\% = 112,5\\%$ giá nhập (phát biểu c sai). Do thu về 112,5% giá nhập nên cửa hàng vẫn lãi $112,5\\% - 100\\% = 12,5\\%$ so với giá nhập.'
+    },
+    {
+      id: 'c11-e3-q5',
+      type: 'single-choice',
+      text: 'Một chiếc laptop được bán với giá 24 000 000 đồng sau khi đã giảm giá 20% so với giá niêm yết. Biết rằng với mức giá bán này, cửa hàng vẫn đang lãi 25% so với giá nhập. Hỏi giá niêm yết và giá nhập của chiếc laptop lần lượt là bao nhiêu?',
+      options: ['30 000 000 đồng và 19 200 000 đồng', '28 800 000 đồng và 19 200 000 đồng', '30 000 000 đồng và 18 000 000 đồng', '28 800 000 đồng và 18 000 000 đồng'],
+      correctAnswerIndex: 0,
+      explanation: 'Giá niêm yết là $24 000 000 : (100\\% - 20\\%) = 30 000 000$ (đồng). Giá nhập là $24 000 000 : (100\\% + 25\\%) = 19 200 000$ (đồng).'
+    },
+    {
+      id: 'c11-e3-q6',
+      type: 'single-choice',
+      text: 'Một người nông dân mang trứng ra chợ bán. Lần thứ nhất người đó bán $\\dfrac{1}{3}$ số trứng và thêm 5 quả. Lần thứ hai người đó bán $\\dfrac{1}{5}$ số trứng còn lại và thêm 10 quả. Sau hai lần bán, trong rổ còn lại 50 quả trứng. Tổng số trứng ban đầu người đó mang đi là:',
+      options: ['120 quả', '150 quả', '90 quả', '100 quả'],
+      correctAnswerIndex: 0,
+      explanation: 'Tính ngược từ cuối: Số trứng trước lần bán thứ hai (sau lần 1) là $(50 + 10) : (1 - \\dfrac{1}{5}) = 75$ (quả). Số trứng ban đầu mang đi là $(75 + 5) : (1 - \\dfrac{1}{3}) = 120$ (quả).'
+    },
+    {
+      id: 'c11-e3-q7',
+      type: 'single-choice',
+      text: 'Một kho chứa gạo xuất hàng trong 3 đợt. Đợt 1 xuất 25% số gạo trong kho. Đợt 2 xuất $\\dfrac{1}{3}$ số gạo còn lại và thêm 4 tấn. Đợt 3 xuất $\\dfrac{1}{2}$ số gạo còn lại sau đợt 2 và thêm 2 tấn thì trong kho vừa hết gạo. Hỏi ban đầu kho có bao nhiêu tấn gạo?',
+      options: ['16 tấn', '20 tấn', '24 tấn', '12 tấn'],
+      correctAnswerIndex: 0,
+      explanation: 'Số gạo trước đợt 3: $(0 + 2) : (1 - \\dfrac{1}{2}) = 4$ (tấn). Số gạo trước đợt 2: $(4 + 4) : (1 - \\dfrac{1}{3}) = 12$ (tấn). Số gạo ban đầu là: $12 : (1 - 25\\%) = 16$ (tấn).'
+    },
+    {
+      id: 'c11-e3-q8',
+      type: 'short-answer',
+      text: 'Bạn Hân đọc một cuốn tiểu thuyết trong 3 ngày. Ngày thứ nhất Hân đọc được $\\dfrac{1}{4}$ số trang và thêm 12 trang. Ngày thứ hai Hân đọc được 40% số trang còn lại và thêm 15 trang. Ngày thứ ba Hân đọc nốt 75 trang cuối cùng. Hỏi cuốn tiểu thuyết đó dày bao nhiêu trang?',
+      options: [],
+      correctAnswerIndex: 0,
+      answerText: '216',
+      explanation: 'Số trang sách còn lại trước khi đọc ngày 2 là $(75 + 15) : (1 - 40\\%) = 150$ (trang). Tổng số trang sách ban đầu là $(150 + 12) : (1 - \\dfrac{1}{4}) = 216$ (trang).'
+    },
+    {
+      id: 'c11-e3-q9',
+      type: 'true-false',
+      text: 'Một xí nghiệp may xuất khẩu trang thành 3 đợt. Đợt 1 xuất $\\dfrac{1}{5}$ số khẩu trang và thêm 400 chiếc. Đợt 2 xuất 25% số khẩu trang còn lại và thêm 300 chiếc. Đợt 3 xuất $\\dfrac{1}{3}$ số khẩu trang còn lại sau đợt 2. Cuối cùng trong kho còn 800 chiếc. Xét tính đúng sai của các phát biểu sau:',
+      options: [],
+      correctAnswerIndex: 0,
+      trueFalseStatements: [
+        'Số khẩu trang còn lại ngay sau đợt 2 là 1 200 chiếc.',
+        'Đợt 2 đã xuất tất cả 800 chiếc khẩu trang.',
+        'Tổng số khẩu trang xí nghiệp có ban đầu là 2 500 chiếc.',
+        'Đợt 1 đã xuất 1 000 chiếc khẩu trang.'
+      ],
+      trueFalseAnswers: [true, true, false, true],
+      explanation: 'Tính ngược: Trước đợt 3 có $800 : (1 - \\dfrac{1}{3}) = 1200$ (chiếc). Trước đợt 2 có $(1200 + 300) : (1 - 25\\%) = 2000$ (chiếc). Đợt 2 xuất: $25\\% \\times 2000 + 300 = 800$ (chiếc). Ban đầu có $(2000 + 400) : (1 - \\dfrac{1}{5}) = 3000$ (chiếc). Đợt 1 xuất: $\\dfrac{1}{5} \\times 3000 + 400 = 1000$ (chiếc).'
+    },
+    {
+      id: 'c11-e3-q10',
+      type: 'single-choice',
+      text: 'Mẹ cho Nam một số tiền tiêu vặt. Ngày thứ nhất Nam mua đồ dùng học tập hết $\\dfrac{1}{4}$ số tiền. Ngày thứ hai Nam mua sách hết 40% số tiền còn lại. Ngày thứ ba Nam ủng hộ quỹ từ thiện 60 000 đồng thì Nam nhận thấy mình còn lại đúng 30 000 đồng. Hỏi lúc đầu mẹ cho Nam bao nhiêu tiền?',
+      options: ['150 000 đồng', '200 000 đồng', '250 000 đồng', '300 000 đồng'],
+      correctAnswerIndex: 1,
+      explanation: 'Số tiền Nam có trước khi ủng hộ từ thiện là $60 000 + 30 000 = 90 000$ (đồng). Số tiền Nam có trước ngày thứ hai là $90 000 : (1 - 40\\%) = 150 000$ (đồng). Số tiền lúc đầu mẹ cho Nam là $150 000 : (1 - \\dfrac{1}{4}) = 200 000$ (đồng).'
+    },
+    {
+      id: 'c11-e3-q11',
+      type: 'single-choice',
+      text: 'Một chiếc máy tính xách tay được siêu thị điện máy giảm giá 10%. Tuy nhiên, nếu là khách hàng thành viên (VIP), khách sẽ được giảm thêm 5% tính trên "mức giá đã giảm" đó. Một khách hàng VIP đã mua chiếc máy này với giá 17 100 000 đồng. Hỏi giá niêm yết ban đầu của máy là bao nhiêu?',
+      options: ['19 000 000 đồng', '20 000 000 đồng', '19 500 000 đồng', '18 000 000 đồng'],
+      correctAnswerIndex: 1,
+      explanation: 'Bài toán giảm giá kép, cần tính ngược từng bước. Bước 1: Trước khi giảm 5% cho VIP, giá máy là $17 100 000 : (100\\% - 5\\%) = 18 000 000$ (đồng). Bước 2: Đây là mức giá sau khi đã giảm 10% từ giá niêm yết. Vậy giá niêm yết gốc là $18 000 000 : (100\\% - 10\\%) = 20 000 000$ (đồng).'
+    },
+    {
+      id: 'c11-e3-q12',
+      type: 'single-choice',
+      text: 'Một cửa hàng nhập về một món đồ chơi giáo dục với giá vốn là 120 000 đồng. Cửa hàng muốn bán sao cho tiền lãi thu được bằng đúng 20% "GIÁ BÁN RA" (lưu ý: không phải 20% giá vốn). Hỏi cửa hàng phải định giá bán là bao nhiêu?',
+      options: ['144 000 đồng', '150 000 đồng', '140 000 đồng', '160 000 đồng'],
+      correctAnswerIndex: 1,
+      explanation: 'Ý tưởng chính: Coi "Giá bán" là mốc 100%. Tiền lãi chiếm 20% giá bán. Bước 1: Suy ra tiền vốn sẽ chiếm $100\\% - 20\\% = 80\\%$ giá bán. Bước 2: Ta đã biết tiền vốn là 120 000 đồng (tương ứng 80%). Vậy giá bán ra phải là: $120 000 : 80\\% = 150 000$ (đồng).'
+    },
+    {
+      id: 'c11-e3-q13',
+      type: 'short-answer',
+      text: 'Một siêu thị nhập một chiếc túi xách về. Để kích cầu, siêu thị định giá bán (giá niêm yết) cao hơn giá nhập 40%. Sau đó, trong ngày Black Friday, siêu thị lại giảm giá 20% trên giá niêm yết. Hỏi thực tế siêu thị đã lãi bao nhiêu phần trăm so với giá nhập? (Chỉ điền con số, không ghi kí hiệu %)',
+      options: [],
+      correctAnswerIndex: 0,
+      answerText: '12',
+      explanation: 'Bước 1: Coi giá nhập là 100%. Giá niêm yết dán trên túi sẽ là $100\\% + 40\\% = 140\\%$. Bước 2: Siêu thị bán giảm 20% so với giá niêm yết, tức là thu về 80% của con số 140% này. Bước 3: Giá bán thực tế so với giá nhập là $140\\% \\times 80\\% = 112\\%$. Vậy siêu thị lãi $112\\% - 100\\% = 12\\%$.'
+    },
+    {
+      id: 'c11-e3-q14',
+      type: 'true-false',
+      text: 'Một người buôn trái cây mua 100 kg cam với cùng một mức giá nhập. Người đó chọn ra 60 kg quả to đẹp và bán với mức giá lãi 30% so với giá nhập. 40 kg còn lại quả nhỏ hơn nên đành bán lỗ 15% so với giá nhập. Xét tính đúng sai của các phát biểu sau:',
+      options: [],
+      correctAnswerIndex: 0,
+      trueFalseStatements: [
+        'Tiền thu về từ 60 kg quả to bằng 130% tiền vốn của 60 kg đó.',
+        'Tiền thu về từ 40 kg quả nhỏ bằng 85% tiền vốn của 40 kg đó.',
+        'Tổng doanh thu từ việc bán 100 kg cam đúng bằng tổng tiền vốn ban đầu (tức là hòa vốn).',
+        'Người đó lãi tổng cộng 12% trên toàn bộ vốn mua lô cam.'
+      ],
+      trueFalseAnswers: [true, true, false, true],
+      explanation: 'Doanh thu 60kg đầu: $60 \\times 130\\% = 78$ (phần vốn). Doanh thu 40kg sau: $40 \\times 85\\% = 34$ (phần vốn). Tổng thu về là $78 + 34 = 112$ (phần vốn so với 100 phần ban đầu). Thu về 112% nghĩa là lãi 12%. Phát biểu C sai vì thu về nhiều hơn vốn ban đầu.'
+    },
+    {
+      id: 'c11-e3-q15',
+      type: 'single-choice',
+      text: 'Một khách hàng mua một chiếc máy lọc nước và trả tổng cộng 13 200 000 đồng (số tiền này đã bao gồm 10% thuế VAT). Biết rằng cửa hàng đã bán chiếc máy này với mức lãi 20% so với giá nhập (lãi tính trên giá trước thuế). Giá nhập của chiếc máy lọc nước là:',
+      options: ['10 000 000 đồng', '11 000 000 đồng', '10 500 000 đồng', '9 600 000 đồng'],
+      correctAnswerIndex: 0,
+      explanation: 'Bước 1: Bóc tách phần thuế VAT. Giá bán thực tế của cửa hàng (trước khi cộng 10% thuế) là: $13 200 000 : (100\\% + 10\\%) = 12 000 000$ (đồng). Bước 2: Tìm giá vốn. Cửa hàng lãi 20% so với giá vốn, nên giá vốn là: $12 000 000 : (100\\% + 20\\%) = 10 000 000$ (đồng).'
+    },
+    {
+      id: 'c11-e3-q16',
+      type: 'single-choice',
+      text: 'Một học sinh đọc cuốn sách tham khảo Toán. Ngày 1 đọc được $\\dfrac{1}{3}$ TỔNG số trang sách. Ngày 2 đọc được $\\dfrac{1}{4}$ số trang CÒN LẠI. Ngày 3 đọc được $\\dfrac{1}{2}$ số trang còn lại sau ngày 2. Cuối cùng, sách còn đúng 60 trang chưa đọc. Hỏi cuốn sách dày bao nhiêu trang?',
+      options: ['240 trang', '180 trang', '360 trang', '300 trang'],
+      correctAnswerIndex: 0,
+      explanation: 'Tính ngược từng bước từ dưới lên. Bước 1: Số trang trước ngày 3 là $60 : (1 - \\dfrac{1}{2}) = 120$. Bước 2: Số trang trước ngày 2 là $120 : (1 - \\dfrac{1}{4}) = 160$. Bước 3: Số trang ban đầu (trước ngày 1) là $160 : (1 - \\dfrac{1}{3}) = 240$ (trang).'
+    },
+    {
+      id: 'c11-e3-q17',
+      type: 'short-answer',
+      text: 'Một quả bóng cao su được thả rơi tự do. Mỗi lần chạm đất, quả bóng nảy lên một độ cao bằng $\\dfrac{2}{3}$ độ cao của lần rơi ngay trước đó. Sau khi chạm đất lần thứ 3, quả bóng nảy lên đạt độ cao 24 cm. Hỏi lúc đầu quả bóng được thả từ độ cao bao nhiêu xen-ti-mét?',
+      options: [],
+      correctAnswerIndex: 0,
+      answerText: '81',
+      explanation: 'Tính ngược lại theo tỷ lệ. Bước 1: Độ cao trước khi chạm đất lần 3 là $24 : \\dfrac{2}{3} = 36$ (cm). Bước 2: Độ cao trước lần chạm đất thứ 2 là $36 : \\dfrac{2}{3} = 54$ (cm). Bước 3: Độ cao lúc thả ban đầu (trước lần chạm đất 1) là $54 : \\dfrac{2}{3} = 81$ (cm).'
+    },
+    {
+      id: 'c11-e3-q18',
+      type: 'true-false',
+      text: 'Có một rổ cam. Ngày thứ nhất ăn $\\dfrac{1}{2}$ số cam và ăn thêm $\\dfrac{1}{2}$ quả. Ngày thứ hai ăn $\\dfrac{1}{2}$ số cam còn lại và ăn thêm $\\dfrac{1}{2}$ quả. Ngày thứ ba cũng ăn $\\dfrac{1}{2}$ số cam còn lại và ăn thêm $\\dfrac{1}{2}$ quả thì vừa hết số cam trong rổ (không phải cắt đôi quả nào). Xét tính đúng sai của các phát biểu sau:',
+      options: [],
+      correctAnswerIndex: 0,
+      trueFalseStatements: [
+        'Trước ngày thứ ba, trong rổ có đúng 1 quả cam.',
+        'Số cam trước ngày thứ hai là 4 quả.',
+        'Tổng số cam ban đầu trong rổ là 7 quả.',
+        'Ngày thứ nhất đã ăn tổng cộng 4 quả cam.'
+      ],
+      trueFalseAnswers: [true, false, true, true],
+      explanation: 'Quy luật tính ngược: Lấy số cam còn lại CỘNG $\\dfrac{1}{2}$, sau đó CHIA cho $\\dfrac{1}{2}$ (tức là nhân 2). Trước ngày 3: $(0 + 0,5) \\times 2 = 1$ quả. Trước ngày 2: $(1 + 0,5) \\times 2 = 3$ quả. Ban đầu (trước ngày 1): $(3 + 0,5) \\times 2 = 7$ quả. Ngày 1 ăn: $7 - 3 = 4$ quả. Suy ra phát biểu B sai.'
+    },
+    {
+      id: 'c11-e3-q19',
+      type: 'single-choice',
+      text: 'Tàu khách khởi hành từ ga A. Tại ga A, $\\dfrac{1}{3}$ số hành khách xuống tàu và có 30 người lên tàu. Đến ga B, $\\dfrac{1}{4}$ số khách hiện tại xuống tàu và có 50 người lên tàu. Đến ga C, $\\dfrac{1}{5}$ số khách xuống tàu và 30 người lên tàu. Cuối cùng, tàu đến ga cuối với 214 khách. Hỏi ban đầu khi chưa tới ga A, trên tàu có bao nhiêu khách?',
+      options: ['315 người', '240 người', '300 người', '285 người'],
+      correctAnswerIndex: 0,
+      explanation: 'Tính ngược từ ga cuối. Trước ga C (lúc chưa có 30 người lên và $\\dfrac{1}{5}$ người xuống): $(214 - 30) : (1 - \\dfrac{1}{5}) = 230$ người. Trước ga B: $(230 - 50) : (1 - \\dfrac{1}{4}) = 240$ người. Ban đầu trước khi có thay đổi ở ga A: $(240 - 30) : (1 - \\dfrac{1}{3}) = 315$ người.'
+    },
+    {
+      id: 'c11-e3-q20',
+      type: 'short-answer',
+      text: 'Một đàn chim đậu trên hai cành cây. Đầu tiên, có 10 con chim bay từ cành dưới lên cành trên. Sau đó, $\\dfrac{1}{3}$ số chim ở cành trên bay đi kiếm ăn. Cuối cùng, số chim còn lại ở cành trên đúng bằng $\\dfrac{1}{2}$ số chim ở cành dưới. Biết hiện tại cành dưới có 24 con chim. Hỏi ban đầu lúc chưa có sự dịch chuyển nào, cành trên có bao nhiêu con chim?',
+      options: [],
+      correctAnswerIndex: 0,
+      answerText: '8',
+      explanation: 'Bước 1: Lúc cuối, cành trên có số chim là $24 \\times \\dfrac{1}{2} = 12$ (con). Bước 2: Trước khi bay đi kiếm ăn, cành trên có: $12 : (1 - \\dfrac{1}{3}) = 18$ (con). Bước 3: Đảo ngược sự việc "10 con bay từ dưới lên trên", số chim cành trên lúc ban đầu là: $18 - 10 = 8$ (con).'
+    }
+  ]
+},
   {
     id: 'c11-e4',
     title: 'Đề thi số 4',
